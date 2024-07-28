@@ -16,3 +16,6 @@
 [submodule "fdk-aac"]
 	path = fdk-aac
 	url = ../fdk-aac.git
+[submodule "px4-drv"]
+	path = px4-drv
+	url = git@gitlab.com:takahiro-itou-dtv/px4-drv.git
