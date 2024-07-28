@@ -16,6 +16,6 @@
 [submodule "fdk-aac"]
 	path = fdk-aac
 	url = ../fdk-aac.git
-[submodule "px4-drv"]
-	path = px4-drv
-	url = ../px4-drv.git
+[submodule "px4_drv"]
+	path = px4_drv
+	url = ../px4_drv.git
