@@ -4,3 +4,6 @@
 [submodule "EDCB"]
 	path = EDCB
 	url = ../EDCB.git
+[submodule "LibISDB"]
+	path = LibISDB
+	url = git@gitlab.com:takahiro-itou-dtv/LibISDB.git
