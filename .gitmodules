@@ -10,3 +10,6 @@
 [submodule "TvCas"]
 	path = TvCas
 	url = ../TvCas.git
+[submodule "TVTest"]
+	path = TVTest
+	url = git@gitlab.com:takahiro-itou-dtv/TVTest.git
