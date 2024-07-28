@@ -1,0 +1,3 @@
+[submodule "CasProcessor"]
+	path = CasProcessor
+	url = git@gitlab.com:takahiro-itou-dtv/CasProcessor.git
