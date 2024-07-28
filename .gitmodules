@@ -9,4 +9,4 @@
 	url = ../LibISDB.git
 [submodule "TvCas"]
 	path = TvCas
-	url = git@gitlab.com:takahiro-itou-dtv/TvCas.git
+	url = ../TvCas.git
