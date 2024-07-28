@@ -1,0 +1,21 @@
+[submodule "CasProcessor"]
+	path = CasProcessor
+	url = ../CasProcessor.git
+[submodule "EDCB"]
+	path = EDCB
+	url = ../EDCB.git
+[submodule "LibISDB"]
+	path = LibISDB
+	url = ../LibISDB.git
+[submodule "TvCas"]
+	path = TvCas
+	url = ../TvCas.git
+[submodule "TVTest"]
+	path = TVTest
+	url = ../TVTest.git
+[submodule "fdk-aac"]
+	path = fdk-aac
+	url = ../fdk-aac.git
+[submodule "px4-drv"]
+	path = px4-drv
+	url = ../px4-drv.git
