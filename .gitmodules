@@ -15,4 +15,4 @@
 	url = ../TVTest.git
 [submodule "fdk-aac"]
 	path = fdk-aac
-	url = git@gitlab.com:takahiro-itou-dtv/fdk-aac.git
+	url = ../fdk-aac.git
