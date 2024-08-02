@@ -1,5 +1,5 @@
 [submodule "CasProcessor"]
-	path = CasProcessor
+	path = TVTest/CasProcessor
 	url = ../CasProcessor.git
 [submodule "EDCB"]
 	path = EDCB
