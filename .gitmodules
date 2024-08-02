@@ -11,7 +11,7 @@
 	path = TvCas
 	url = ../TvCas.git
 [submodule "TVTest"]
-	path = TVTest
+	path = TVTest/TVTest
 	url = ../TVTest.git
 [submodule "fdk-aac"]
 	path = fdk-aac
