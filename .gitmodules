@@ -17,5 +17,5 @@
 	path = fdk-aac
 	url = ../fdk-aac.git
 [submodule "px4_drv"]
-	path = px4_drv
+	path = Drivers/px4_drv
 	url = ../px4_drv.git
