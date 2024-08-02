@@ -19,3 +19,6 @@
 [submodule "px4_drv"]
 	path = Drivers/px4_drv
 	url = ../px4_drv.git
+[submodule "EDCB/libaribb25"]
+	path = EDCB/libaribb25
+	url = git@gitlab.com:takahiro-itou-dtv/libaribb25.git
