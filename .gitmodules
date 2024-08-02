@@ -1,24 +1,24 @@
-[submodule "TVTest/CasProcessor"]
-	path = TVTest/CasProcessor
-	url = ../CasProcessor.git
+[submodule "Drivers/px4_drv"]
+	path = Drivers/px4_drv
+	url = ../px4_drv.git
 [submodule "EDCB/EDCB"]
 	path = EDCB/EDCB
 	url = ../EDCB.git
-[submodule "extra/LibISDB"]
-	path = extra/LibISDB
-	url = ../LibISDB.git
+[submodule "EDCB/libaribb25"]
+	path = EDCB/libaribb25
+	url = ../libaribb25.git
+[submodule "TVTest/CasProcessor"]
+	path = TVTest/CasProcessor
+	url = ../CasProcessor.git
 [submodule "TVTest/TvCas"]
 	path = TVTest/TvCas
 	url = ../TvCas.git
 [submodule "TVTest/TVTest"]
 	path = TVTest/TVTest
 	url = ../TVTest.git
+[submodule "extra/LibISDB"]
+	path = extra/LibISDB
+	url = ../LibISDB.git
 [submodule "fdk-aac"]
 	path = fdk-aac
 	url = ../fdk-aac.git
-[submodule "Drivers/px4_drv"]
-	path = Drivers/px4_drv
-	url = ../px4_drv.git
-[submodule "EDCB/libaribb25"]
-	path = EDCB/libaribb25
-	url = ../libaribb25.git
