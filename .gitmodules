@@ -5,7 +5,7 @@
 	path = EDCB/EDCB
 	url = ../EDCB.git
 [submodule "extra/LibISDB"]
-	path = Extra/LibISDB
+	path = extra/LibISDB
 	url = ../LibISDB.git
 [submodule "TVTest/TvCas"]
 	path = TVTest/TvCas
