@@ -8,7 +8,7 @@
 	path = LibISDB
 	url = ../LibISDB.git
 [submodule "TvCas"]
-	path = TvCas
+	path = TVTest/TvCas
 	url = ../TvCas.git
 [submodule "TVTest"]
 	path = TVTest/TVTest
