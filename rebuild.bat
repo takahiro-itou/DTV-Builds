@@ -16,6 +16,12 @@ pushd "%~dp0"
 
 pushd TVTest
 
+@REM   "LibISDB のビルド"
+
+pushd  TVTest\src\LibISDB\Projects
+msbuild  -maxCpuCount  -t:Rebuild  -p:Platform=x64 -p:Configuration=Debug       LibISDB.sln
+popd
+
 @REM   "TVTest  の全ソリューションのリビルド完了"
 
 echo  TVTest  のビルド完了
