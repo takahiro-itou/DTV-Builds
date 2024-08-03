@@ -33,4 +33,4 @@
 	url = ../Write_Multi.git
 [submodule "EDCB/psisiarc"]
 	path = EDCB/psisiarc
-	url = git@gitlab.com:takahiro-itou-dtv/psisiarc.git
+	url = ../psisiarc.git
