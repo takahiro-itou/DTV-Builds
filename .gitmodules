@@ -19,7 +19,7 @@
 [submodule "extra/LibISDB"]
 	path = extra/LibISDB
 	url = ../LibISDB.git
-[submodule "fdk-aac"]
+[submodule "extra/fdk-aac"]
 	path = extra/fdk-aac
 	url = ../fdk-aac.git
 [submodule "EDCB/lua"]
