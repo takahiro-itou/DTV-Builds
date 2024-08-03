@@ -3,6 +3,9 @@ chcp  65001
 @ECHO ON
 setlocal
 
+set common_args=-maxCpuCount  -t:Rebuild
+set build_cmd=msbuild.exe  %common_args%
+
 
 @REM  ====================================================================
 @REM   "全てのソリューションをリビルドする"
@@ -19,7 +22,7 @@ pushd TVTest
 @REM   "LibISDB のビルド"
 
 pushd  TVTest\src\LibISDB\Projects
-msbuild  -maxCpuCount  -t:Rebuild  -p:Platform=x64 -p:Configuration=Debug       LibISDB.sln
+%build_cmd%  -p:Platform=x64 -p:Configuration=Debug       LibISDB.sln
 popd
 
 @REM   "TVTest  の全ソリューションのリビルド完了"
