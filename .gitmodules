@@ -30,4 +30,4 @@
 	url = ../lua-zlib.git
 [submodule "EDCB/Write_Multi"]
 	path = EDCB/Write_Multi
-	url = git@gitlab.com:takahiro-itou-dtv/Write_Multi.git
+	url = ../Write_Multi.git
