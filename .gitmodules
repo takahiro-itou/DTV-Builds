@@ -4,9 +4,27 @@
 [submodule "EDCB/EDCB"]
 	path = EDCB/EDCB
 	url = ../EDCB.git
+[submodule "EDCB/Write_Multi"]
+	path = EDCB/Write_Multi
+	url = ../Write_Multi.git
 [submodule "EDCB/libaribb25"]
 	path = EDCB/libaribb25
 	url = ../libaribb25.git
+[submodule "EDCB/lua"]
+	path = EDCB/lua
+	url = ../lua.git
+[submodule "EDCB/lua-zlib"]
+	path = EDCB/lua-zlib
+	url = ../lua-zlib.git
+[submodule "EDCB/psisiarc"]
+	path = EDCB/psisiarc
+	url = ../psisiarc.git
+[submodule "EDCB/tsmemseg"]
+	path = EDCB/tsmemseg
+	url = ../tsmemseg.git
+[submodule "EDCB/tsreadex"]
+	path = EDCB/tsreadex
+	url = ../tsreadex.git
 [submodule "TVTest/CasProcessor"]
 	path = TVTest/CasProcessor
 	url = ../CasProcessor.git
@@ -22,21 +40,3 @@
 [submodule "extra/fdk-aac"]
 	path = extra/fdk-aac
 	url = ../fdk-aac.git
-[submodule "EDCB/lua"]
-	path = EDCB/lua
-	url = ../lua.git
-[submodule "EDCB/lua-zlib"]
-	path = EDCB/lua-zlib
-	url = ../lua-zlib.git
-[submodule "EDCB/Write_Multi"]
-	path = EDCB/Write_Multi
-	url = ../Write_Multi.git
-[submodule "EDCB/psisiarc"]
-	path = EDCB/psisiarc
-	url = ../psisiarc.git
-[submodule "EDCB/tsmemseg"]
-	path = EDCB/tsmemseg
-	url = ../tsmemseg.git
-[submodule "EDCB/tsreadex"]
-	path = EDCB/tsreadex
-	url = ../tsreadex.git
