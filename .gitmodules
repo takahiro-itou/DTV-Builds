@@ -22,3 +22,6 @@
 [submodule "fdk-aac"]
 	path = fdk-aac
 	url = ../fdk-aac.git
+[submodule "EDCB/lua"]
+	path = EDCB/lua
+	url = git@gitlab.com:takahiro-itou-dtv/lua.git
