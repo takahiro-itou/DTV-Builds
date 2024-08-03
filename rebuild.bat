@@ -22,7 +22,12 @@ pushd TVTest
 @REM   "LibISDB のビルド"
 
 pushd  TVTest\src\LibISDB\Projects
-%build_cmd%  -p:Platform=x64 -p:Configuration=Debug       LibISDB.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       LibISDB.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     LibISDB.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release_MD  LibISDB.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       LibISDB.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     LibISDB.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release_MD  LibISDB.sln
 popd
 
 @REM   "TVTest  の全ソリューションのリビルド完了"
