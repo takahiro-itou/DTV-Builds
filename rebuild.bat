@@ -30,6 +30,17 @@ pushd  TVTest\src\LibISDB\Projects
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release_MD  LibISDB.sln
 popd
 
+@REM   "TVTest  のビルド"
+
+pushd  TVTest\src
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       TVTest.sln
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Release     TVTest.sln
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Release_MD  TVTest.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       TVTest.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     TVTest.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release_MD  TVTest.sln
+popd
+
 @REM   "TVTest  の全ソリューションのリビルド完了"
 
 echo  TVTest  のビルド完了
