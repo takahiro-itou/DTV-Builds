@@ -25,3 +25,6 @@
 [submodule "EDCB/lua"]
 	path = EDCB/lua
 	url = ../lua.git
+[submodule "EDCB/lua-zlib"]
+	path = EDCB/lua-zlib
+	url = git@gitlab.com:takahiro-itou-dtv/lua-zlib.git
