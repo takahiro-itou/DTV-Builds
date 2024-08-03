@@ -39,4 +39,4 @@
 	url = ../tsmemseg.git
 [submodule "tsreadex"]
 	path = tsreadex
-	url = git@gitlab.com:takahiro-itou-dtv/tsreadex.git
+	url = ../tsreadex.git
