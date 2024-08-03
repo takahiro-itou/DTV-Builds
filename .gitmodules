@@ -36,4 +36,4 @@
 	url = ../psisiarc.git
 [submodule "EDCB/tsmemseg"]
 	path = EDCB/tsmemseg
-	url = git@gitlab.com:takahiro-itou-dtv/tsmemseg.git
+	url = ../tsmemseg.git
