@@ -37,6 +37,6 @@
 [submodule "EDCB/tsmemseg"]
 	path = EDCB/tsmemseg
 	url = ../tsmemseg.git
-[submodule "tsreadex"]
+[submodule "EDCB/tsreadex"]
 	path = EDCB/tsreadex
 	url = ../tsreadex.git
