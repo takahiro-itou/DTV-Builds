@@ -37,3 +37,6 @@
 [submodule "EDCB/tsmemseg"]
 	path = EDCB/tsmemseg
 	url = ../tsmemseg.git
+[submodule "tsreadex"]
+	path = tsreadex
+	url = git@gitlab.com:takahiro-itou-dtv/tsreadex.git
