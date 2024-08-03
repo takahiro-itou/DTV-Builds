@@ -1,6 +1,6 @@
 chcp  65001
 
-@ECHO OFF
+@ECHO ON
 setlocal
 
 
