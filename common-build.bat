@@ -106,6 +106,15 @@ popd
 
 pushd EDCB
 
+@REM   "EDCB  のビルド"
+
+pushd  EDCB\Document
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       EDCB_ALL.VS2015.sln
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Release     EDCB_ALL.VS2015.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       EDCB_ALL.VS2015.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     EDCB_ALL.VS2015.sln
+popd
+
 @REM   "EDCB  の全ソリューションのビルド完了"
 
 echo  EDCB  のビルド完了
