@@ -13,7 +13,7 @@ set build_cmd=msbuild.exe  %common_args%
 
 
 @REM  ====================================================================
-@REM   "全てのソリューションをリビルドする"
+@REM   "全てのソリューションをビルドする"
 @REM
 
 set script_dir=%~dp0
@@ -26,7 +26,7 @@ set retarget_solution=-p:ForceImportBeforeCppProps=%prop_file%
 
 
 @REM  ----------------------------------------------------------------
-@REM   "TVTest  の全てのソリューションをリビルドする"
+@REM   "TVTest  の全てのソリューションをビルドする"
 @REM
 
 pushd TVTest
@@ -94,28 +94,28 @@ pushd  TVCas
     %retarget_solution%  TvCas.sln
 popd
 
-@REM   "TVTest  の全ソリューションのリビルド完了"
+@REM   "TVTest  の全ソリューションのビルド完了"
 
 echo  TVTest  のビルド完了
 popd
 @REM  PAUSE
 
 @REM  ----------------------------------------------------------------
-@REM   "EDCB  の全てのソリューションをリビルドする"
+@REM   "EDCB  の全てのソリューションをビルドする"
 @REM
 
 pushd EDCB
 
-@REM   "EDCB  の全ソリューションのリビルド完了"
+@REM   "EDCB  の全ソリューションのビルド完了"
 
 echo  EDCB  のビルド完了
 popd
 REM   PAUSE
 
 @REM  ====================================================================
-@REM   "全てのソリューションのリビルド完了"
+@REM   "全てのソリューションのビルド完了"
 @REM
 
-echo  全ソリューションのリビルド完了
+echo  全ソリューションのビルド完了
 popd
 PAUSE
