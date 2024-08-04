@@ -162,7 +162,7 @@ GOTO  success
 
 :failure
 
-set build_error=%error_level%
+set build_error=%errorlevel%
 echo  ビルドに失敗しました : %build_error%
 popd
 EXIT /B 1
