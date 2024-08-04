@@ -208,6 +208,15 @@ pushd  lua
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     lua52.sln
 popd
 
+@REM   "zlib52  のビルド"
+
+pushd  lua-zlib
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       zlib52.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     zlib52.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       zlib52.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     zlib52.sln
+popd
+
 @REM   "Write_Multi のビルド"
 
 pushd  Write_Multi
