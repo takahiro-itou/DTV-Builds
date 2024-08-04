@@ -16,7 +16,8 @@ set build_cmd=msbuild.exe  %common_args%
 @REM   "全てのソリューションをリビルドする"
 @REM
 
-pushd "%~dp0"
+set script_dir="%~dp0"
+pushd %script_dir%
 
 @REM  ----------------------------------------------------------------
 @REM   "TVTest  の全てのソリューションをリビルドする"
