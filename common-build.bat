@@ -16,9 +16,12 @@ set build_cmd=msbuild.exe  %common_args%
 @REM   "全てのソリューションをリビルドする"
 @REM
 
-set script_dir="%~dp0"
-pushd %script_dir%
-dir %script_dir%override.props
+set script_dir=%~dp0
+set prop_file="%script_dir%override.props"
+
+pushd "%script_dir%"
+dir "%prop_file%"
+
 
 @REM  ----------------------------------------------------------------
 @REM   "TVTest  の全てのソリューションをリビルドする"
