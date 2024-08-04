@@ -35,11 +35,17 @@ pushd TVTest
 
 pushd TVTest\src\LibISDB\Projects
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       LibISDB.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     LibISDB.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release_MD  LibISDB.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       LibISDB.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     LibISDB.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release_MD  LibISDB.sln
+IF errorlevel 1  GOTO  failure
 popd
 
 @REM   "TVTest  のビルド"
@@ -148,10 +154,27 @@ echo  EDCB  のビルド完了
 popd
 REM   PAUSE
 
+GOTO  success
+
+@REM  ====================================================================
+@REM   "ビルド失敗"
+@REM
+
+:failure
+
+build_error=%error_level%
+echo  ビルドに失敗しました : %build_error%
+popd
+EXIT /B 1
+
+
 @REM  ====================================================================
 @REM   "全てのソリューションのビルド完了"
 @REM
 
+:success
 echo  全ソリューションのビルド完了
+
+:finally
 popd
 PAUSE
