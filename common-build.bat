@@ -8,7 +8,7 @@ IF "%~1" == "" (
 ) ELSE (
     set target=%1
 )
-set common_args=-maxCpuCount  -t:%targetr%
+set common_args=-maxCpuCount  -t:%target%
 set build_cmd=msbuild.exe  %common_args%
 
 
