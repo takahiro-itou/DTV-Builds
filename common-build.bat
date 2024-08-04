@@ -22,6 +22,8 @@ set prop_file="%script_dir%override.props"
 pushd "%script_dir%"
 dir "%prop_file%"
 
+set retarget_solution=-p:ForceImportBeforeCppProps=%prop_file%
+
 
 @REM  ----------------------------------------------------------------
 @REM   "TVTest  の全てのソリューションをリビルドする"
@@ -65,7 +67,8 @@ popd
 @REM   "CasProcessor  のビルド"
 
 pushd  CasProcessor
-%build_cmd%  -p:Platform=Win32  -p:Configuration=Release  CasProcessor.sln  -p:ForceImportBeforeCppProps=%prop_file%
+%build_cmd%  -p:Platform=Win32  -p:Configuration=Release  ^
+    %retarget_solution%  CasProcessor.sln
 popd
 
 @REM   "TVTest  の全ソリューションのリビルド完了"
