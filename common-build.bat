@@ -18,6 +18,7 @@ set build_cmd=msbuild.exe  %common_args%
 
 set script_dir="%~dp0"
 pushd %script_dir%
+dir %script_dir%override.props
 
 @REM  ----------------------------------------------------------------
 @REM   "TVTest  の全てのソリューションをリビルドする"
