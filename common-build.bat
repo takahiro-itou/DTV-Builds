@@ -186,6 +186,19 @@ IF errorlevel 1  GOTO  failure
 IF errorlevel 1  GOTO  failure
 popd
 
+@REM   "B25Decoder  のビルド"
+
+pushd  libaribb25
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       arib_std_b25.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Release     arib_std_b25.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       arib_std_b25.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     arib_std_b25.sln
+IF errorlevel 1  GOTO  failure
+popd
+
 @REM   "EDCB  の全ソリューションのビルド完了"
 
 echo  EDCB  のビルド完了
@@ -202,6 +215,13 @@ GOTO  success
 :failure
 
 set build_error=%errorlevel%
+
+@REM   "ここに飛んでくる時は、各ソリューションのディレクトリに入っている"
+
+popd
+
+@REM   "その外側にもう一段 TVTest or EDCB ディレクトリへの pushd  がある"
+
 popd
 
 echo  ビルドに失敗しました : %build_error%
