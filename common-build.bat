@@ -62,6 +62,12 @@ pushd TVTest\sdk\Samples
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release_static  Samples.sln
 popd
 
+@REM   "CasProcessor  のビルド"
+
+pushd  CasProcessor
+%build_cmd%  -p:Platform=Win32  -p:Configuration=Release  CasProcessor.sln
+popd
+
 @REM   "TVTest  の全ソリューションのリビルド完了"
 
 echo  TVTest  のビルド完了
