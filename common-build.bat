@@ -65,7 +65,7 @@ popd
 @REM   "CasProcessor  のビルド"
 
 pushd  CasProcessor
-%build_cmd%  -p:Platform=Win32  -p:Configuration=Release  CasProcessor.sln
+%build_cmd%  -p:Platform=Win32  -p:Configuration=Release  CasProcessor.sln  -p:ForceImportBeforeCppProps=%prop_file%
 popd
 
 @REM   "TVTest  の全ソリューションのリビルド完了"
