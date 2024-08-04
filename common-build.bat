@@ -124,6 +124,15 @@ pushd  EDCB\ini\Tools
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     misc.sln
 popd
 
+@REM   "EDCB  ツールのビルド"
+
+pushd  EDCB\ini\Tools\IBonCast
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       IBonCast.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     IBonCast.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       IBonCast.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     IBonCast.sln
+popd
+
 @REM   "EDCB  の全ソリューションのビルド完了"
 
 echo  EDCB  のビルド完了
