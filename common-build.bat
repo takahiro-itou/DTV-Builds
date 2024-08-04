@@ -199,6 +199,24 @@ IF errorlevel 1  GOTO  failure
 IF errorlevel 1  GOTO  failure
 popd
 
+@REM   "Write_Multi のビルド"
+
+pushd  Write_Multi
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       ^
+    %retarget_solution%  Write_Multi.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     ^
+    %retarget_solution%  Write_Multi.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       ^
+    %retarget_solution%  Write_Multi.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     ^
+    %retarget_solution%  Write_Multi.sln
+IF errorlevel 1  GOTO  failure
+popd
+
+
 @REM   "EDCB  の全ソリューションのビルド完了"
 
 echo  EDCB  のビルド完了
