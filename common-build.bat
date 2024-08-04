@@ -67,7 +67,13 @@ popd
 @REM   "CasProcessor  のビルド"
 
 pushd  CasProcessor
-%build_cmd%  -p:Platform=Win32  -p:Configuration=Release  ^
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       ^
+    %retarget_solution%  CasProcessor.sln
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Release     ^
+    %retarget_solution%  CasProcessor.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       ^
+    %retarget_solution%  CasProcessor.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     ^
     %retarget_solution%  CasProcessor.sln
 popd
 
