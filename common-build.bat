@@ -1,4 +1,3 @@
-chcp  65001
 
 @ECHO ON
 setlocal
