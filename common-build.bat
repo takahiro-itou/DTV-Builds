@@ -77,6 +77,23 @@ pushd  CasProcessor
     %retarget_solution%  CasProcessor.sln
 popd
 
+@REM   "TvCas のビルド"
+
+pushd  TVCas
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug           ^
+    %retarget_solution%  TvCas.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release         ^
+    %retarget_solution%  TvCas.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=ReleaseSPHD     ^
+    %retarget_solution%  TvCas.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug           ^
+    %retarget_solution%  TvCas.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release         ^
+    %retarget_solution%  TvCas.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=ReleaseSPHD     ^
+    %retarget_solution%  TvCas.sln
+popd
+
 @REM   "TVTest  の全ソリューションのリビルド完了"
 
 echo  TVTest  のビルド完了
