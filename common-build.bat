@@ -52,22 +52,34 @@ popd
 
 pushd TVTest\src
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       TVTest.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release     TVTest.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release_MD  TVTest.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       TVTest.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     TVTest.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release_MD  TVTest.sln
+IF errorlevel 1  GOTO  failure
 popd
 
 @REM   "サンプルプラグインのビルド"
 
 pushd TVTest\sdk\Samples
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug           Samples.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release         Samples.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release_static  Samples.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug           Samples.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release         Samples.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release_static  Samples.sln
+IF errorlevel 1  GOTO  failure
 popd
 
 @REM   "CasProcessor  のビルド"
@@ -75,12 +87,16 @@ popd
 pushd  CasProcessor
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       ^
     %retarget_solution%  CasProcessor.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release     ^
     %retarget_solution%  CasProcessor.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       ^
     %retarget_solution%  CasProcessor.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     ^
     %retarget_solution%  CasProcessor.sln
+IF errorlevel 1  GOTO  failure
 popd
 
 @REM   "TvCas のビルド"
@@ -88,16 +104,22 @@ popd
 pushd  TVCas
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug           ^
     %retarget_solution%  TvCas.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release         ^
     %retarget_solution%  TvCas.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=ReleaseSPHD     ^
     %retarget_solution%  TvCas.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug           ^
     %retarget_solution%  TvCas.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release         ^
     %retarget_solution%  TvCas.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=ReleaseSPHD     ^
     %retarget_solution%  TvCas.sln
+IF errorlevel 1  GOTO  failure
 popd
 
 @REM   "TVTest  の全ソリューションのビルド完了"
@@ -116,36 +138,52 @@ pushd EDCB
 
 pushd  EDCB\Document
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       EDCB_ALL.VS2015.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release     EDCB_ALL.VS2015.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       EDCB_ALL.VS2015.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     EDCB_ALL.VS2015.sln
+IF errorlevel 1  GOTO  failure
 popd
 
 @REM   "EDCB  ツールのビルド"
 
 pushd  EDCB\ini\Tools
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       misc.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     misc.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       misc.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     misc.sln
+IF errorlevel 1  GOTO  failure
 popd
 
 @REM   "EDCB  ツールのビルド"
 
 pushd  EDCB\ini\Tools\IBonCast
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       IBonCast.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     IBonCast.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       IBonCast.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     IBonCast.sln
+IF errorlevel 1  GOTO  failure
 popd
 
 @REM   "EDCB  ツールのビルド"
 
 pushd  EDCB\ini\Tools\tsidmove
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       tsidmove.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     tsidmove.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       tsidmove.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     tsidmove.sln
+IF errorlevel 1  GOTO  failure
 popd
 
 @REM   "EDCB  の全ソリューションのビルド完了"
@@ -156,6 +194,7 @@ REM   PAUSE
 
 GOTO  success
 
+
 @REM  ====================================================================
 @REM   "ビルド失敗"
 @REM
@@ -164,6 +203,7 @@ GOTO  success
 
 set build_error=%errorlevel%
 popd
+
 echo  ビルドに失敗しました : %build_error%
 IF  %build_error% LSS 1 (
     set build_error=1
@@ -177,7 +217,5 @@ EXIT /B %build_error%
 
 :success
 echo  全ソリューションのビルド完了
-
-:finally
 popd
 PAUSE
