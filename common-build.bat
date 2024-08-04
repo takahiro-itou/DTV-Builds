@@ -133,6 +133,15 @@ pushd  EDCB\ini\Tools\IBonCast
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     IBonCast.sln
 popd
 
+@REM   "EDCB  ツールのビルド"
+
+pushd  EDCB\ini\Tools\tsidmove
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       tsidmove.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     tsidmove.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       tsidmove.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     tsidmove.sln
+popd
+
 @REM   "EDCB  の全ソリューションのビルド完了"
 
 echo  EDCB  のビルド完了
