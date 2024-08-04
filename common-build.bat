@@ -199,6 +199,15 @@ IF errorlevel 1  GOTO  failure
 IF errorlevel 1  GOTO  failure
 popd
 
+@REM   "lua52 のビルド"
+
+pushd  lua
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       lua52.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     lua52.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       lua52.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     lua52.sln
+popd
+
 @REM   "Write_Multi のビルド"
 
 pushd  Write_Multi
