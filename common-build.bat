@@ -163,9 +163,12 @@ GOTO  success
 :failure
 
 set build_error=%errorlevel%
-echo  ビルドに失敗しました : %build_error%
 popd
-EXIT /B 1
+echo  ビルドに失敗しました : %build_error%
+IF  %build_error% LSS 1 (
+    set build_error=1
+)
+EXIT /B %build_error%
 
 
 @REM  ====================================================================
