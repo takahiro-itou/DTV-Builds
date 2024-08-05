@@ -234,6 +234,15 @@ IF errorlevel 1  GOTO  failure
 IF errorlevel 1  GOTO  failure
 popd
 
+@REM   "psisiarc  のビルド"
+
+pushd  psisiarc
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       psisiarc.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     psisiarc.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       psisiarc.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     psisiarc.sln
+popd
+
 
 @REM   "EDCB  の全ソリューションのビルド完了"
 
