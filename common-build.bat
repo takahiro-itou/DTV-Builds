@@ -252,6 +252,15 @@ pushd  tsmemseg
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     tsmemseg.sln
 popd
 
+@REM   "tsreadex  のビルド"
+
+pushd  tsreadex
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       tsreadex.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     tsreadex.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       tsreadex.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     tsreadex.sln
+popd
+
 
 @REM   "EDCB  の全ソリューションのビルド完了"
 
