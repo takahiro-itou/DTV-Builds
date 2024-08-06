@@ -243,6 +243,15 @@ pushd  psisiarc
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     psisiarc.sln
 popd
 
+@REM   "tsmemseg  のビルド"
+
+pushd  tsmemseg
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       tsmemseg.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     tsmemseg.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       tsmemseg.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     tsmemseg.sln
+popd
+
 
 @REM   "EDCB  の全ソリューションのビルド完了"
 
