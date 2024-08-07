@@ -243,6 +243,15 @@ pushd  psisiarc
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     psisiarc.sln
 popd
 
+@REM   "psisimux  のビルド"
+
+pushd  psisimux
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       psisimux.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     psisimux.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       psisimux.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     psisimux.sln
+popd
+
 @REM   "tsmemseg  のビルド"
 
 pushd  tsmemseg
