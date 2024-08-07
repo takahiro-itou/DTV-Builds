@@ -42,4 +42,4 @@
 	url = ../fdk-aac.git
 [submodule "EDCB/psisimux"]
 	path = EDCB/psisimux
-	url = https://github.com/xtne6f/psisimux.git
+	url = ../psisimux.git
