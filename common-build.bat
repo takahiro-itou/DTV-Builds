@@ -242,9 +242,13 @@ popd
 
 pushd  psisiarc
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       psisiarc.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     psisiarc.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       psisiarc.sln
+IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     psisiarc.sln
+IF errorlevel 1  GOTO  failure
 popd
 
 @REM   "psisimux  のビルド"
