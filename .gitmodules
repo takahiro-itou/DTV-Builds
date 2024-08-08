@@ -40,3 +40,6 @@
 [submodule "extra/fdk-aac"]
 	path = extra/fdk-aac
 	url = ../fdk-aac.git
+[submodule "EDCB/psisimux"]
+	path = EDCB/psisimux
+	url = ../psisimux.git
