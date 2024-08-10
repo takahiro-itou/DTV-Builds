@@ -88,6 +88,7 @@ popd
 @REM
 
 pushd EDCB
+set src_dir=%arch%\%config%
 
 @REM   "EDCB  のパッケージスクリプトを呼び出し"
 

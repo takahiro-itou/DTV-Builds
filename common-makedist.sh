@@ -88,6 +88,7 @@ popd
 ##
 
 pushd EDCB
+src_dir="${arch}/${config}"
 
 ##  EDCB  のパッケージスクリプトを呼び出し
 
