@@ -9,9 +9,21 @@
 script_file=${BASH_SOURCE:-$0}
 script_dir=$(readlink -f "$(dirname "${script_file}")")
 
-runtime='static'
+pushd  "${script_dir}"
 
-"${script_dir}/common-makedist.sh"  x86  Release  ${runtime}
-"${script_dir}/common-makedist.sh"  x86  Debug    ${runtime}
-"${script_dir}/common-makedist.sh"  x64  Release  ${runtime}
-"${script_dir}/common-makedist.sh"  x64  Debug    ${runtime}
+arch=$1
+config=$2
+runtime=$3
+
+out_dir='Package'
+
+if [[ "${arch}" == 'x86' ]] ; then
+    winbits='Win32'
+else
+    winbits="${arch}"
+fi
+
+target_out_dir="${script_dir}/${out_dir}/${arch}/${config}"
+mkdir -p "${target_out_dir}"
+
+popd
