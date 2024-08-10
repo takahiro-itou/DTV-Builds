@@ -37,6 +37,7 @@ mkdir  "%dst_dir%\Write"
 COPY /V /B  "%src_dir%\*.dll"               "%dst_dir%\" /B
 COPY /V /B  "%src_dir%\*.exe"               "%dst_dir%\" /B
 COPY /V /B  "%src_dir%\EpgTimer.exe"        "%dst_dir%\EpgTimerNW.exe" /B
+COPY /V /B  "%src_dir%\EpgTimerPlugIn.tvtp" "%dst_dir%\" /B
 
 popd
 
