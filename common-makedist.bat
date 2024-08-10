@@ -38,6 +38,7 @@ mkdir "%target_out_dir%"
 
 set src_dir=%winbits%\%config%
 
+set work_dir=%script_dir%\Packages.work
 set tvtest_dir=%target_out_dir%\TVTest
 set edcb_dir=%target_out_dir%\EDCB
 set plugin_dir=%tvtest_dir%\Plugins
@@ -51,6 +52,29 @@ mkdir "%edcb_dir%"
 @REM
 
 pushd TVTest
+
+@REM   "TVTest  のファイルを配置"
+
+CALL  "package.bat"     ^
+    %arch%              ^
+    %runtime%           ^
+    %config%            ^
+    %src_dir%           ^
+    %tvtest_dir%        ^
+
+
+
+pushd "TVTest\sdk\Samples"
+COPY /V /B  DiskRelay\DiskRelay.txt             "%plugin_dir%\" /B
+COPY /V /B  MemoryCapture\MemoryCapture.txt     "%plugin_dir%\" /B
+popd
+
+@REM   "ファイルを配置"
+
+COPY /V /B  CasProcessor\%src_dir%\CasProcessor.tvtp    "%plugin_dir%\" /B
+COPY /V /B  TvCas\%src_dir%\B25.tvcas       "%tvtest_dir%\" /B
+
+mkdir "%tvtest_dir%\BonDriver"
 
 popd
 

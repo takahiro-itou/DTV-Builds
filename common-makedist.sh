@@ -54,26 +54,27 @@ mkdir -p "${edcb_dir}"
 pushd TVTest
 
 ##  TVTest  のファイルを配置
-pushd TVTest
-/bin/bash  package.sh       \
+
+/bin/bash  "TVTest/package.sh"  \
     -a  "${arch}"           \
     -c  "${runtime}"        \
     -t  "${config}"         \
     -l  all                 \
     -o  "${work_dir}"       \
-    -r  ''                  \
-;
-
+    -r  ''
 mv -v  "${work_dir}/${arch}/${config}"              "${tvtest_dir}"
-cp -pv sdk/Samples/DiskRelay/DiskRelay.txt          "${plugin_dir}"
-cp -pv sdk/Samples/MemoryCapture/MemoryCapture.txt  "${plugin_dir}"
 
+pushd TVTest/sdk/Samples/
+cp -pv DiskRelay/DiskRelay.txt                      "${plugin_dir}"
+cp -pv MemoryCapture/MemoryCapture.txt              "${plugin_dir}"
 popd
 
 ##  ファイルを配置
 
 cp -pv CasProcessor/${src_dir}/CasProcessor.tvtp    "${plugin_dir}"
 cp -pv TvCas/${src_dir}/B25.tvcas                   "${tvtest_dir}"
+
+mkdir -p "${tvtest_dir}/BonDriver"
 
 popd
 
