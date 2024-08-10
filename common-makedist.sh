@@ -55,6 +55,7 @@ pushd TVTest
 
 ##  TVTest  のファイルを配置
 
+pushd TVTest
 /bin/bash  "TVTest/package.sh"  \
     -a  "${arch}"           \
     -c  "${runtime}"        \
@@ -64,7 +65,7 @@ pushd TVTest
     -r  ''
 mv -v  "${work_dir}/${arch}/${config}"              "${tvtest_dir}"
 
-pushd TVTest/sdk/Samples/
+cd  sdk/Samples/
 cp -pv DiskRelay/DiskRelay.txt                      "${plugin_dir}"
 cp -pv MemoryCapture/MemoryCapture.txt              "${plugin_dir}"
 popd

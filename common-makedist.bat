@@ -55,6 +55,7 @@ pushd TVTest
 
 @REM   "TVTest  のファイルを配置"
 
+
 CALL  "package.bat"     ^
     %arch%              ^
     %runtime%           ^
@@ -62,9 +63,9 @@ CALL  "package.bat"     ^
     %src_dir%           ^
     %tvtest_dir%        ^
 
+pushd TVTest
 
-
-pushd "TVTest\sdk\Samples"
+cd  "sdk\Samples"
 COPY /V /B  DiskRelay\DiskRelay.txt             "%plugin_dir%\" /B
 COPY /V /B  MemoryCapture\MemoryCapture.txt     "%plugin_dir%\" /B
 popd
