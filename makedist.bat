@@ -10,6 +10,9 @@ setlocal
 set script_dir=%~dp0
 pushd "%script_dir%"
 
+set runtime=static
+set out_dir=Packages
+
 CALL  :MakeDist  x86  Release
 CALL  :MakeDist  x86  Debug
 CALL  :MakeDist  x64  Release
