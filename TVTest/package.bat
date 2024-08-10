@@ -26,6 +26,12 @@ IF /i "%runtime%" == "static" (
 set tvtest_dir=%target_out_dir%\TVTest
 set plugin_dir=%tvtest_dir%\Plugins
 
+
+@REM  ====================================================================
+@REM
+@REM   "ファイルをコピーする"
+@REM
+
 @REM  src\{Win32, x64}\{Debug, Release} から直下にコピー
 
 pushd TVTest
@@ -67,5 +73,11 @@ COPY /V /B  SpectrumAnalyzer.tvtp           "%plugin_dir%\" /B
 COPY /V /B  TSInfo.tvtp                     "%plugin_dir%\" /B
 COPY /V /B  TunerPanel.tvtp                 "%plugin_dir%\" /B
 popd
+
+
+@REM  ====================================================================
+@REM
+@REM   "完了"
+@REM
 
 popd
