@@ -34,7 +34,11 @@ mkdir  "%dst_dir%\Setting"
 mkdir  "%dst_dir%\Tools"
 mkdir  "%dst_dir%\Write"
 
-COPY /V /B  "%src_bin_dir%\EpgDataCap_Bon.exe" "%dst_dir%"
+COPY /V /B  "%src_dir%\EpgDataCap_Bon.exe"  "%dst_dir%" /B
+
+COPY /V /B  "%src_dir%\EpgTimer.exe"        "%dst_dir%\EpgTimer.exe" /B
+COPY /V /B  "%src_dir%/EpgTimer.exe"        "%dst_dir%\EpgTimerNW.exe" /B
+
 popd
 
 
