@@ -11,7 +11,7 @@ script_dir=$(readlink -f "$(dirname "${script_file}")")
 
 pushd  "${script_dir}"
 
-out_dir='Package'
+out_dir='Packages.bash'
 
 
 ##########################################################################
@@ -38,11 +38,12 @@ mkdir -p "${target_out_dir}"
 
 src_dir="${winbits}/${config}"
 
+work_dir="${script_dir}/Packages.work"
 tvtest_dir="${target_out_dir}/TVTest"
 edcb_dir="${target_out_dir}/EDCB"
 plugin_dir="${tvtest_dir}/Plugins"
 
-mkdir -p "${plugin_dir}"
+mkdir -p "${work_dir}"
 mkdir -p "${edcb_dir}"
 
 
@@ -59,10 +60,11 @@ pushd TVTest
     -c  "${runtime}"        \
     -t  "${config}"         \
     -l  all                 \
-    -o  "${tvtest_dir}"     \
+    -o  "${work_dir}"       \
     -r  ''                  \
 ;
 
+mv -v  "${work_dir}/${arch}/${config}"              "${tvtest_dir}"
 cp -pv sdk/Samples/DiskRelay/DiskRelay.txt          "${plugin_dir}"
 cp -pv sdk/Samples/MemoryCapture/MemoryCapture.txt  "${plugin_dir}"
 
