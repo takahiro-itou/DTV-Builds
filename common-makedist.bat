@@ -32,6 +32,15 @@ IF /i "%arch%" == "x86" (
 set target_out_dir=%script_dir%\%out_dir%\%arch%\%config%
 mkdir "%target_out_dir%"
 
+set src_dir=%winbits%\%config%
+
+set tvtest_dir=%target_out_dir%\TVTest
+set edcb_dir=%target_out_dir%\EDCB
+set plugin_dir=%tvtest_dir%\Plugins
+
+mkdir "%plugin_dir%"
+mkdir "%edcb_dir%"
+
 
 @REM  ----------------------------------------------------------------
 @REM   "TVTest  のバイナリをディレクトリに配置する"
