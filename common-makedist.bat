@@ -43,8 +43,9 @@ set tvtest_dir=%target_out_dir%\TVTest
 set edcb_dir=%target_out_dir%\EDCB
 set plugin_dir=%tvtest_dir%\Plugins
 
-mkdir "%plugin_dir%"
-mkdir "%edcb_dir%"
+
+rmdir /S "%tvtest_dir%"
+rmdir /S "%edcb_dir%"
 
 
 @REM  ----------------------------------------------------------------
@@ -55,14 +56,14 @@ pushd TVTest
 
 @REM   "TVTest  のパッケージスクリプトを呼び出し"
 
-
+mkdir "%tvtest_dir%"
+mkdir "%plugin_dir%"
 CALL  "package.bat"     ^
     %arch%              ^
     %runtime%           ^
     %config%            ^
     %src_dir%           ^
     %tvtest_dir%
-
 
 pushd TVTest
 
@@ -90,7 +91,7 @@ pushd EDCB
 
 @REM   "EDCB  のパッケージスクリプトを呼び出し"
 
-
+mkdir "%edcb_dir%"
 CALL  "package.bat"     ^
     %arch%              ^
     %runtime%           ^

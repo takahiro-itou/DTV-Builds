@@ -44,7 +44,8 @@ edcb_dir="${target_out_dir}/EDCB"
 plugin_dir="${tvtest_dir}/Plugins"
 
 mkdir -p "${work_dir}"
-mkdir -p "${edcb_dir}"
+rm -rf "${tvtest_dir}"
+rm -rf "${edcb_dir}"
 
 
 ##--------------------------------------------------------------------
