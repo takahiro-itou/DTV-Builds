@@ -36,6 +36,9 @@ IF /i "%arch%" == "x86" (
     set winbits=%arch%
 )
 
+set target_out_dir=%script_dir%\%out_dir%\%arch%\%config%
+mkdir "%target_out_dir%"
+
 EXIT  /B  0
 
 
