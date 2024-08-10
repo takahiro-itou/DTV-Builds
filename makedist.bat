@@ -9,3 +9,50 @@ setlocal
 
 set script_dir=%~dp0
 pushd "%script_dir%"
+
+CALL  :MakeDist  x86  Release
+CALL  :MakeDist  x86  Debug
+CALL  :MakeDist  x64  Release
+CALL  :MakeDist  x64  Debug
+
+GOTO  success_all
+
+
+@REM  ====================================================================
+@REM   "ビルドされたバイナリをディレクトリに配置する"
+@REM
+
+:MakeDist
+
+set arch=%1
+set config=%2
+
+EXIT  /B  0
+
+
+@REM  ====================================================================
+@REM   "ビルド失敗"
+@REM
+
+:failure
+
+set build_error=%errorlevel%
+
+echo  ビルドに失敗しました : %build_error%
+IF  %build_error% LSS 1 (
+    set build_error=1
+)
+
+EXIT  /B  %build_error%
+
+
+@REM  ====================================================================
+@REM   "完了"
+@REM
+
+:success_all
+echo  パッケージ用ディレクトリの準備完了
+popd
+PAUSE
+
+EXIT  /B  0
