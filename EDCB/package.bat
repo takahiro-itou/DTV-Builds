@@ -34,6 +34,7 @@ mkdir  "%dst_dir%\Setting"
 mkdir  "%dst_dir%\Tools"
 mkdir  "%dst_dir%\Write"
 
+COPY /V /B  "%src_bin_dir%\EpgDataCap_Bon.exe" "%dst_dir%"
 popd
 
 
