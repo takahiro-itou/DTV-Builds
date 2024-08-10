@@ -53,7 +53,7 @@ mkdir "%edcb_dir%"
 
 pushd TVTest
 
-@REM   "TVTest  のファイルを配置"
+@REM   "TVTest  のパッケージスクリプトを呼び出し"
 
 
 CALL  "package.bat"     ^
@@ -61,16 +61,19 @@ CALL  "package.bat"     ^
     %runtime%           ^
     %config%            ^
     %src_dir%           ^
-    %tvtest_dir%        ^
+    %tvtest_dir%
+
 
 pushd TVTest
+
+@REM   "プラグインをコピー"
 
 cd  "sdk\Samples"
 COPY /V /B  DiskRelay\DiskRelay.txt             "%plugin_dir%\" /B
 COPY /V /B  MemoryCapture\MemoryCapture.txt     "%plugin_dir%\" /B
 popd
 
-@REM   "ファイルを配置"
+@REM   "その他のファイルをコピー"
 
 COPY /V /B  CasProcessor\%src_dir%\CasProcessor.tvtp    "%plugin_dir%\" /B
 COPY /V /B  TvCas\%src_dir%\B25.tvcas       "%tvtest_dir%\" /B
@@ -84,6 +87,23 @@ popd
 @REM
 
 pushd EDCB
+
+@REM   "EDCB  のパッケージスクリプトを呼び出し"
+
+
+CALL  "package.bat"     ^
+    %arch%              ^
+    %runtime%           ^
+    %config%            ^
+    %src_dir%           ^
+    %edcb_dir%
+
+
+
+@REM   "追加のディレクトリを作成"
+
+mkdir  "%edcb_dir%\HttpPublic"
+mkdir  "%edcb_dir%\PostBatExamples"
 
 popd
 
@@ -115,6 +135,5 @@ EXIT  /B  %build_error%
 :success_all
 echo  パッケージ用ディレクトリ %target_out_dir% の準備完了
 popd
-PAUSE
 
 EXIT  /B  0

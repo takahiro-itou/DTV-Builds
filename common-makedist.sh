@@ -53,24 +53,27 @@ mkdir -p "${edcb_dir}"
 
 pushd TVTest
 
-##  TVTest  のファイルを配置
+##  TVTest  のパッケージスクリプトを呼び出し
 
 pushd TVTest
-/bin/bash  "package.sh"     \
-    -a  "${arch}"           \
-    -c  "${runtime}"        \
-    -t  "${config}"         \
-    -l  all                 \
-    -o  "${work_dir}"       \
-    -r  ''
-mv -v  "${work_dir}/${arch}/${config}"              "${tvtest_dir}"
+/bin/bash  "package.sh"         \
+    -a  "${arch}"               \
+    -c  "${runtime}"            \
+    -l  all                     \
+    -o  "${work_dir}/tvtest"    \
+    -r  ''                      \
+    -t  "${config}"             \
+;
+mv -v  "${work_dir}/tvtest/${arch}/${config}"       "${tvtest_dir}"
+
+##  プラグインをコピー
 
 cd  sdk/Samples/
 cp -pv DiskRelay/DiskRelay.txt                      "${plugin_dir}"
 cp -pv MemoryCapture/MemoryCapture.txt              "${plugin_dir}"
 popd
 
-##  ファイルを配置
+##  その他のファイルをコピー
 
 cp -pv CasProcessor/${src_dir}/CasProcessor.tvtp    "${plugin_dir}"
 cp -pv TvCas/${src_dir}/B25.tvcas                   "${tvtest_dir}"
@@ -84,6 +87,23 @@ popd
 ##
 
 pushd EDCB
+
+##  EDCB  のパッケージスクリプトを呼び出し
+
+pushd EDCB
+/bin/bash  "package.sh"         \
+    -a  "${arch}"               \
+    -o  "${work_dir}/edcb"      \
+    -r  ''                      \
+    -t  "${config}"             \
+;
+mv -v  "${work_dir}/edcb/${arch}/${config}"         "${edcb_dir}"
+popd
+
+##  追加のディレクトリを作成
+
+mkdir -p "${edcb_dir}/HttpPublic"
+mkdir -p "${edcb_dir}/PostBatExamples"
 
 popd
 
