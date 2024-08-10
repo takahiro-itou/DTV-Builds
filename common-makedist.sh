@@ -29,14 +29,18 @@ else
     winbits="${arch}"
 fi
 
+if [[ "X${config}Y" = 'XDebugY' ]] ; then
+    runtime=''
+fi
+
 target_out_dir="${script_dir}/${out_dir}/${arch}/${config}"
 mkdir -p "${target_out_dir}"
 
 src_dir="${winbits}/${config}"
 
 tvtest_dir="${target_out_dir}/TVTest"
-plugin_dir="${tvtest_dir}/Plugins"
 edcb_dir="${target_out_dir}/EDCB"
+plugin_dir="${tvtest_dir}/Plugins"
 
 mkdir -p "${plugin_dir}"
 mkdir -p "${edcb_dir}"
@@ -59,7 +63,7 @@ pushd TVTest
     -r  ''                  \
 ;
 
-cp -pv sdc/Samples/DiskRelay/DiskRelay.txt          "${plugin_dir}"
+cp -pv sdk/Samples/DiskRelay/DiskRelay.txt          "${plugin_dir}"
 cp -pv sdk/Samples/MemoryCapture/MemoryCapture.txt  "${plugin_dir}"
 
 popd

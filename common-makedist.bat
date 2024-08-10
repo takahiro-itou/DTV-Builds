@@ -29,6 +29,10 @@ IF /i "%arch%" == "x86" (
     set winbits=%arch%
 )
 
+IF /i "%config%" == "Debug" (
+    set runtime=
+)
+
 set target_out_dir=%script_dir%\%out_dir%\%arch%\%config%
 mkdir "%target_out_dir%"
 
