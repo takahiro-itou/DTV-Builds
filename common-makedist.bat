@@ -87,7 +87,7 @@ pushd EDCB
 
 popd
 
-GOTO  success
+GOTO  success_all
 
 
 @REM  ====================================================================
