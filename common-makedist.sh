@@ -56,7 +56,7 @@ pushd TVTest
 ##  TVTest  のファイルを配置
 
 pushd TVTest
-/bin/bash  "TVTest/package.sh"  \
+/bin/bash  "package.sh"     \
     -a  "${arch}"           \
     -c  "${runtime}"        \
     -t  "${config}"         \
