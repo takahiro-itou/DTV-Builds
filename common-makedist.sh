@@ -32,12 +32,42 @@ fi
 target_out_dir="${script_dir}/${out_dir}/${arch}/${config}"
 mkdir -p "${target_out_dir}"
 
+src_dir="${winbits}/${config}"
+
+tvtest_dir="${target_out_dir}/TVTest"
+plugin_dir="${tvtest_dir}/Plugins"
+edcb_dir="${target_out_dir}/EDCB"
+
+mkdir -p "${plugin_dir}"
+mkdir -p "${edcb_dir}"
+
 
 ##--------------------------------------------------------------------
 ##    TVTest  のバイナリをディレクトリに配置する
 ##
 
 pushd TVTest
+
+##  TVTest  のファイルを配置
+pushd TVTest
+/bin/bash  package.sh       \
+    -a  "${arch}"           \
+    -c  "${runtime}"        \
+    -t  "${config}"         \
+    -l  all                 \
+    -o  "${tvtest_dir}"     \
+    -r  ''                  \
+;
+
+cp -pv sdc/Samples/DiskRelay/DiskRelay.txt          "${plugin_dir}"
+cp -pv sdk/Samples/MemoryCapture/MemoryCapture.txt  "${plugin_dir}"
+
+popd
+
+##  ファイルを配置
+
+cp -pv CasProcessor/${src_dir}/CasProcessor.tvtp    "${plugin_dir}"
+cp -pv TvCas/${src_dir}/B25.tvcas                   "${tvtest_dir}"
 
 popd
 
