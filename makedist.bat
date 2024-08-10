@@ -30,6 +30,12 @@ GOTO  success_all
 set arch=%1
 set config=%2
 
+IF /i "%arch%" == "x86" (
+    set winbits="Win32"
+) ELSE (
+    set winbits=%arch%
+)
+
 EXIT  /B  0
 
 
