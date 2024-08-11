@@ -47,6 +47,10 @@ COPY /V /B  "%src_dir%\*.exe"               "%dst_dir%\" /B
 COPY /V /B  "%src_dir%\EpgTimer.exe"        "%dst_dir%\EpgTimerNW.exe" /B
 COPY /V /B  "%src_dir%\EpgTimerPlugIn.tvtp" "%dst_dir%\" /B
 
+COPY /V /B  "ini\Tools\IBonCast\%src2_dir%\IBonCast.dll"  "%dst_dir%\" /B
+COPY /V /B  "%src_dir%\SendTSTCP.dll"       "%dst_dir%\" /B
+COPY /V /B  "LICENSE-Civetweb.md"           "%dst_dir%\" /B
+
 popd
 
 
