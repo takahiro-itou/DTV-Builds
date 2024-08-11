@@ -47,10 +47,10 @@ mkdir "%dst_dir%"
 CALL  "package.bat"     ^
     %arch%              ^
     %runtime%           ^
+    %dst_dir%           ^
     %config%            ^
     %src_dir%           ^
-    %dst_dir%
-
+    EDCB
 
 
 @REM   "追加のディレクトリを作成"

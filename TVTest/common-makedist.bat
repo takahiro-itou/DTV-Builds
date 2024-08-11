@@ -51,7 +51,8 @@ CALL  "package.bat"     ^
     %runtime%           ^
     %dst_dir%           ^
     %src_dir%           ^
-    %config%
+    %config%            ^
+    TVTest
 
 pushd TVTest
 

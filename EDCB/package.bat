@@ -13,9 +13,10 @@ pushd "%script_dir%"
 
 set arch=%1
 set runtime=%2
-set config=%3
-set src_dir=%4
-set dst_dir=%5
+set dst_dir=%3
+set config=%4
+set src_dir=%5
+
 
 IF /i "%arch%" == "x86" (
     set arch2=

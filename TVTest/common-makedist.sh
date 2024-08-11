@@ -53,6 +53,7 @@ pushd TVTest
     -r  ''                      \
     -t  "${config}"             \
 ;
+
 mv -v  "${work_dir}/tvtest/${arch}/${config}"       "${dst_dir}"
 
 ##  プラグインをコピー
