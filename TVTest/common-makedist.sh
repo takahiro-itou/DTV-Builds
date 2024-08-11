@@ -19,9 +19,10 @@ out_dir='Packages.bash'
 ##    ビルドされたバイナリをディレクトリに配置する
 ##
 
-arch=$1
-config=$2
-runtime=$3
+dst_dir=$1
+arch=$2
+config=$3
+runtime=$4
 
 if [[ "${arch}" == 'x86' ]] ; then
     winbits='Win32'
@@ -33,26 +34,15 @@ if [[ "X${config}Y" = 'XDebugY' ]] ; then
     runtime=''
 fi
 
-target_out_dir="${script_dir}/${out_dir}/${arch}/${config}"
-mkdir -p "${target_out_dir}"
-
 src_dir="${winbits}/${config}"
 
 work_dir="${script_dir}/Packages.work"
-tvtest_dir="${target_out_dir}/TVTest"
-edcb_dir="${target_out_dir}/EDCB"
-plugin_dir="${tvtest_dir}/Plugins"
-
-mkdir -p "${work_dir}"
-rm -rf "${tvtest_dir}"
-rm -rf "${edcb_dir}"
+plugin_dir="${dst_dir}/Plugins"
 
 
 ##--------------------------------------------------------------------
 ##    TVTest  のバイナリをディレクトリに配置する
 ##
-
-pushd TVTest
 
 ##  TVTest  のパッケージスクリプトを呼び出し
 
@@ -65,7 +55,7 @@ pushd TVTest
     -r  ''                      \
     -t  "${config}"             \
 ;
-mv -v  "${work_dir}/tvtest/${arch}/${config}"       "${tvtest_dir}"
+mv -v  "${work_dir}/tvtest/${arch}/${config}"       "${dst_dir}"
 
 ##  プラグインをコピー
 
@@ -77,37 +67,9 @@ popd
 ##  その他のファイルをコピー
 
 cp -pv CasProcessor/${src_dir}/CasProcessor.tvtp    "${plugin_dir}"
-cp -pv TvCas/${src_dir}/B25.tvcas                   "${tvtest_dir}"
+cp -pv TvCas/${src_dir}/B25.tvcas                   "${dst_dir}"
 
-mkdir -p "${tvtest_dir}/BonDriver"
-
-popd
-
-######################################################################
-##    EDCB  のバイナリをディレクトリに配置する
-##
-
-pushd EDCB
-src_dir="${arch}/${config}"
-
-##  EDCB  のパッケージスクリプトを呼び出し
-
-pushd EDCB
-/bin/bash  "package.sh"         \
-    -a  "${arch}"               \
-    -o  "${work_dir}/edcb"      \
-    -r  ''                      \
-    -t  "${config}"             \
-;
-mv -v  "${work_dir}/edcb/${arch}/${config}"         "${edcb_dir}"
-popd
-
-##  追加のディレクトリを作成
-
-mkdir -p "${edcb_dir}/HttpPublic"
-mkdir -p "${edcb_dir}/PostBatExamples"
-
-popd
+mkdir -p "${dst_dir}/BonDriver"
 
 
 ##########################################################################
@@ -115,7 +77,7 @@ popd
 ##    完了
 ##
 
-echo  "パッケージ用ディレクトリ ${target_out_dir} の準備完了"
 popd
+echo  "パッケージ用ディレクトリ ${target_out_dir} の準備完了"
 
 exit  0

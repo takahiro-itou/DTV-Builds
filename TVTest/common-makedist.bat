@@ -19,9 +19,10 @@ set out_dir=Packages
 @REM   "ビルドされたバイナリをディレクトリに配置する"
 @REM
 
-set arch=%1
-set config=%2
-set runtime=%3
+set dst_dir=%1
+set arch=%2
+set config=%3
+set runtime=%4
 
 IF /i "%arch%" == "x86" (
     set winbits="Win32"
@@ -33,37 +34,26 @@ IF /i "%config%" == "Debug" (
     set runtime=
 )
 
-set target_out_dir=%script_dir%\%out_dir%\%arch%\%config%
-mkdir "%target_out_dir%"
-
 set src_dir=%winbits%\%config%
 
 set work_dir=%script_dir%\Packages.work
-set tvtest_dir=%target_out_dir%\TVTest
-set edcb_dir=%target_out_dir%\EDCB
-set plugin_dir=%tvtest_dir%\Plugins
-
-
-rmdir /S "%tvtest_dir%"
-rmdir /S "%edcb_dir%"
+set plugin_dir=%dst_dir%\Plugins
 
 
 @REM  ----------------------------------------------------------------
 @REM   "TVTest  のバイナリをディレクトリに配置する"
 @REM
 
-pushd TVTest
-
 @REM   "TVTest  のパッケージスクリプトを呼び出し"
 
-mkdir "%tvtest_dir%"
+mkdir "%dst_dir%"
 mkdir "%plugin_dir%"
 CALL  "package.bat"     ^
     %arch%              ^
     %runtime%           ^
     %config%            ^
     %src_dir%           ^
-    %tvtest_dir%
+    %dst_dir%
 
 pushd TVTest
 
@@ -77,39 +67,20 @@ popd
 @REM   "その他のファイルをコピー"
 
 COPY /V /B  CasProcessor\%src_dir%\CasProcessor.tvtp    "%plugin_dir%\" /B
-COPY /V /B  TvCas\%src_dir%\B25.tvcas       "%tvtest_dir%\" /B
+COPY /V /B  TvCas\%src_dir%\B25.tvcas           "%dst_dir%\" /B
 
-mkdir "%tvtest_dir%\BonDriver"
+mkdir "%dst_dir%\BonDriver"
 
-popd
 
-@REM  ----------------------------------------------------------------
-@REM   "EDCB  のバイナリをディレクトリに配置する"
+@REM  ====================================================================
+@REM
+@REM   "完了"
 @REM
 
-pushd EDCB
-set src_dir=%arch%\%config%
-
-@REM   "EDCB  のパッケージスクリプトを呼び出し"
-
-mkdir "%edcb_dir%"
-CALL  "package.bat"     ^
-    %arch%              ^
-    %runtime%           ^
-    %config%            ^
-    %src_dir%           ^
-    %edcb_dir%
-
-
-
-@REM   "追加のディレクトリを作成"
-
-mkdir  "%edcb_dir%\HttpPublic"
-mkdir  "%edcb_dir%\PostBatExamples"
-
 popd
+echo  パッケージ用ディレクトリ %dst_dir% の準備完了
 
-GOTO  success_all
+EXIT  /B  0
 
 
 @REM  ====================================================================
@@ -120,6 +91,7 @@ GOTO  success_all
 :failure
 
 set build_error=%errorlevel%
+popd
 
 echo  ビルドに失敗しました : %build_error%
 IF  %build_error% LSS 1 (
@@ -127,15 +99,3 @@ IF  %build_error% LSS 1 (
 )
 
 EXIT  /B  %build_error%
-
-
-@REM  ====================================================================
-@REM
-@REM   "完了"
-@REM
-
-:success_all
-echo  パッケージ用ディレクトリ %target_out_dir% の準備完了
-popd
-
-EXIT  /B  0
