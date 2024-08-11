@@ -19,7 +19,7 @@ set dst_dir=%5
 
 IF /i "%runtime%" == "static" (
     set plugin_src_dir=sdk\Samples\%winbits%\%config%_static
-) ELSE
+) ELSE (
     set plugin_src_dir=sdk\Samples\%winbits%\%config%
 )
 
