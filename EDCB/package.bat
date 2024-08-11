@@ -17,6 +17,13 @@ set config=%3
 set src_dir=%4
 set dst_dir=%5
 
+IF /i "%arch%" == "x86" (
+    set arch2=
+    set src2_dir=%config%
+) ELSE (
+    set arch2=%arch%
+    set src2_dir=%arch%\%config%
+)
 
 
 @REM  ====================================================================
