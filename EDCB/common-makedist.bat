@@ -69,7 +69,7 @@ mkdir  "%dst_dir%\PostBatExamples"
 @REM   "その他のファイルをコピー"
 
 pushd  "libaribb25\%winbits%\%config%"
-COPY /V /B "libaribb25.dll"                 "%dst_dir%\B25Decoder.dll"  /B
+COPY /V /B "libaribb25.dll"             "%dst_dir%\B25Decoder.dll"  /B
 popd
 
 COPY /V /B  "lua\%src2_dir%\lua52.dll"              "%dst_dir%\"  /B

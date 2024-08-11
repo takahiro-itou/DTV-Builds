@@ -68,6 +68,10 @@ mkdir -p "${dst_dir}/PostBatExamples"
 
 ##  その他のファイルをコピー
 
+pushd  "libaribb25/${winbits}/${config}"
+cp -pv  "libaribb25.dll"             "${dst_dir}/B25Decoder.dll"
+popd
+
 cp -pv  "lua/${src2_dir}/lua52.dll"             "${dst_dir}"
 cp -pv  "lua-zlib/${src2_dir}/zlib52.dll"       "${dst_dir}"
 cp -pv  "psisiarc/${src2_dir}/psisiarc.exe"     "${dst_dir}/Tools"
@@ -77,7 +81,7 @@ cp -pv  "tsreadex/${src2_dir}/tsreadex.exe"     "${dst_dir}/Tools"
 cp -pv  "tsreadex/${src2_dir}/tsreadex.exe"         \
         "${dst_dir}/Tools/edcbnosuspend.exe"
 cp -pv  "Write_Multi/${src2_dir}/Write_Multi.dll"   \
-           "${dst_dir}/EdcbPlugIn/"  /B
+           "${dst_dir}/EdcbPlugIn/"
 
 
 ##########################################################################
