@@ -47,8 +47,10 @@ COPY /V /B  "%src_dir%\*.exe"               "%dst_dir%\" /B
 COPY /V /B  "%src_dir%\EpgTimer.exe"        "%dst_dir%\EpgTimerNW.exe" /B
 COPY /V /B  "%src_dir%\EpgTimerPlugIn.tvtp" "%dst_dir%\" /B
 
-COPY /V /B  "ini\Tools\IBonCast\%src2_dir%\IBonCast.dll"  "%dst_dir%\" /B
-COPY /V /B  "%src_dir%\SendTSTCP.dll"       "%dst_dir%\" /B
+pushd  "ini\Tools\IBonCast\%src2_dir%"
+COPY /V /B  "IBonCast.dll"                  "%dst_dir%\" /B
+popd
+
 COPY /V /B  "LICENSE-Civetweb.md"           "%dst_dir%\" /B
 
 COPY /V /B  "Document\*.txt"                "%dst_dir%\" /B
@@ -61,38 +63,37 @@ COPY /V /B  "ini\EpgTimerSrv_Install.bat"   "%dst_dir%\" /B
 COPY /V /B  "ini\EpgTimerSrv_Remove.bat"    "%dst_dir%\" /B
 COPY /V /B  "ini\EpgTimerSrv_Setting.bat"   "%dst_dir%\" /B
 
-COPY /V /B  "%src_dir%\EdcbPlugIn.tvtp"     "%dst_dir%\EdcbPlugIn\"  /B
-
 pushd  "EdcbPlugIn\EdcbPlugIn\"
 COPY /V /B  "ch2chset.vbs"                  "%dst_dir%\EdcbPlugIn\" /B
 COPY /V /B  "EdcbPlugIn.ini"                "%dst_dir%\EdcbPlugIn\" /B
 COPY /V /B  "EdcbPlugIn_Readme.txt"         "%dst_dir%\EdcbPlugIn\" /B
 popd
 
-COPY /V /B  "%src_dir%\Write\Write_OneService.dll"  "%dst_dir%\EdcbPlugIn\"  /B
-
 XCOPY /E /V ini/HttpPublic                  "%dst_dir%\HttpPublic"
-COPY /V /B  "%src_dir%\RecName\RecName_Macro.dll"   "%dst_dir%\RecName\"  /B
 
 pushd  "ini\Tools"
-COPY /V /B  "mail_credential.bat"       "%dst_dir%\Tools\"  /B
-COPY /V /B  "mail_credential.ps1"       "%dst_dir%\Tools\"  /B
-COPY /V /B  "tsidmove_helper.bat"       "%dst_dir%\Tools\"  /B
-COPY /V /B  "watchip.bat"               "%dst_dir%\Tools\"  /B
-COPY /V /B  "watchip.ps1"               "%dst_dir%\Tools\"  /B
-popd
-
-pushd  "ini\Tools\tsidmove\%src2_dir%"
-COPY /V /B  "tsidmove.exe"              "%dst_dir%\Tools\"  /B
-popd
-
-pushd  "ini\Tools\%src2_dir%"
-COPY /V /B  "asyncbuf.exe"              "%dst_dir%\Tools\"  /B
-COPY /V /B  "relayread.exe"             "%dst_dir%\Tools\"  /B
+COPY /V /B  "mail_credential.bat"           "%dst_dir%\Tools\"  /B
+COPY /V /B  "mail_credential.ps1"           "%dst_dir%\Tools\"  /B
+COPY /V /B  "tsidmove_helper.bat"           "%dst_dir%\Tools\"  /B
+COPY /V /B  "watchip.bat"                   "%dst_dir%\Tools\"  /B
+COPY /V /B  "watchip.ps1"                   "%dst_dir%\Tools\"  /B
 popd
 
 pushd  "%src_dir%"
-COPY /V /B  "Write\Write_Default.dll"   "%dst_dir%\Write\"  /B
+COPY /V /B  "SendTSTCP.dll"                 "%dst_dir%\" /B
+COPY /V /B  "EdcbPlugIn.tvtp"               "%dst_dir%\EdcbPlugIn\"  /B
+COPY /V /B  "Write\Write_OneService.dll"    "%dst_dir%\EdcbPlugIn\"  /B
+COPY /V /B  "RecName\RecName_Macro.dll"     "%dst_dir%\RecName\"  /B
+COPY /V /B  "Write\Write_Default.dll"       "%dst_dir%\Write\"  /B
+popd
+
+pushd  "ini\Tools\tsidmove\%src2_dir%"
+COPY /V /B  "tsidmove.exe"                  "%dst_dir%\Tools\"  /B
+popd
+
+pushd  "ini\Tools\%src2_dir%"
+COPY /V /B  "asyncbuf.exe"                  "%dst_dir%\Tools\"  /B
+COPY /V /B  "relayread.exe"                 "%dst_dir%\Tools\"  /B
 popd
 
 popd
