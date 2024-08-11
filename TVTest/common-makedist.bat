@@ -49,9 +49,9 @@ mkdir "%plugin_dir%"
 CALL  "package.bat"     ^
     %arch%              ^
     %runtime%           ^
-    %config%            ^
+    %dst_dir%           ^
     %src_dir%           ^
-    %dst_dir%
+    %config%
 
 pushd TVTest
 
