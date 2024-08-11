@@ -11,11 +11,11 @@ setlocal
 set script_dir=%~dp0
 pushd "%script_dir%"
 
+set dst_dir=%5
 set arch=%1
 set runtime=%2
 set config=%3
 set src_dir=%4
-set dst_dir=%5
 
 IF /i "%runtime%" == "static" (
     set plugin_src_dir=sdk\Samples\%winbits%\%config%_static
@@ -23,8 +23,7 @@ IF /i "%runtime%" == "static" (
     set plugin_src_dir=sdk\Samples\%winbits%\%config%
 )
 
-set tvtest_dir=%target_out_dir%\TVTest
-set plugin_dir=%tvtest_dir%\Plugins
+set plugin_dir=%dst_dir%\Plugins
 
 
 @REM  ====================================================================
@@ -36,24 +35,24 @@ set plugin_dir=%tvtest_dir%\Plugins
 
 pushd TVTest
 
-COPY /V /B  src\%src_dir%\TVTest.exe        "%tvtest_dir%\" /B
-COPY /V /B  src\%src_dir%\TVTest_Image.dll  "%tvtest_dir%\" /B
-COPY /V /B  src\%src_dir%\TVTest.chm        "%tvtest_dir%\" /B
+COPY /V /B  src\%src_dir%\TVTest.exe        "%dst_dir%\" /B
+COPY /V /B  src\%src_dir%\TVTest_Image.dll  "%dst_dir%\" /B
+COPY /V /B  src\%src_dir%\TVTest.chm        "%dst_dir%\" /B
 
-COPY /V /B  doc\*                           "%tvtest_dir%\" /B
-COPY /V /B  data\DRCSMap.sample.ini         "%tvtest_dir%\" /B
-COPY /V /B  data\TVTest.search.ini          "%tvtest_dir%\" /B
-COPY /V /B  data\TVTest.style.ini           "%tvtest_dir%\" /B
-COPY /V /B  data\TVTest.tuner.ini           "%tvtest_dir%\" /B
+COPY /V /B  doc\*                           "%dst_dir%\" /B
+COPY /V /B  data\DRCSMap.sample.ini         "%dst_dir%\" /B
+COPY /V /B  data\TVTest.search.ini          "%dst_dir%\" /B
+COPY /V /B  data\TVTest.style.ini           "%dst_dir%\" /B
+COPY /V /B  data\TVTest.tuner.ini           "%dst_dir%\" /B
 
 IF /i "%arch%" == "x86" (
-COPY /V /B  data\TVTest_Logo.bmp            "%tvtest_dir%\" /B
+COPY /V /B  data\TVTest_Logo.bmp            "%dst_dir%\" /B
 ) ELSE (
-COPY /V /B  data\Data_x64\TVTest_Logo.bmp   "%tvtest_dir%\" /B
+COPY /V /B  data\Data_x64\TVTest_Logo.bmp   "%dst_dir%\" /B
 )
 
-mkdir "%tvtest_dir%\Themes"
-COPY /V /B  data\Themes\*.httheme           "%tvtest_dir%\Themes\" /B
+mkdir "%dst_dir%\Themes"
+COPY /V /B  data\Themes\*.httheme           "%dst_dir%\Themes\" /B
 popd
 
 pushd "TVTest\%plugin_src_dir%"
