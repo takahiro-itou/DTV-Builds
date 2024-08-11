@@ -8,6 +8,7 @@ setlocal
 @REM   "各バージョンのパッケージ用ディレクトリを準備する"
 @REM
 
+set script_file=%0
 set script_dir=%~dp0
 pushd "%script_dir%"
 
@@ -43,7 +44,6 @@ set tvtest_dir=%target_out_dir%\TVTest
 set edcb_dir=%target_out_dir%\EDCB
 set plugin_dir=%tvtest_dir%\Plugins
 
-
 rmdir /S "%tvtest_dir%"
 rmdir /S "%edcb_dir%"
 
@@ -57,6 +57,7 @@ CALL  "TVTest\common-makedist.bat"  ^
     %arch%          ^
     %config%        ^
     %runtime%
+
 
 
 @REM  ----------------------------------------------------------------
@@ -85,7 +86,16 @@ mkdir  "%edcb_dir%\PostBatExamples"
 
 popd
 
-GOTO  success_all
+
+@REM  ====================================================================
+@REM
+@REM   "完了"
+@REM
+
+popd
+echo  パッケージ用ディレクトリ %target_out_dir% の準備完了
+
+EXIT  /B  0
 
 
 @REM  ====================================================================
@@ -103,15 +113,3 @@ IF  %build_error% LSS 1 (
 )
 
 EXIT  /B  %build_error%
-
-
-@REM  ====================================================================
-@REM
-@REM   "完了"
-@REM
-
-:success_all
-echo  パッケージ用ディレクトリ %target_out_dir% の準備完了
-popd
-
-EXIT  /B  0
