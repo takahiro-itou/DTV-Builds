@@ -11,8 +11,6 @@ setlocal
 set script_dir=%~dp0
 pushd "%script_dir%"
 
-set out_dir=Packages
-
 
 @REM  ====================================================================
 @REM
