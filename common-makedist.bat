@@ -34,7 +34,7 @@ IF /i "%config%" == "Debug" (
     set runtime=
 )
 
-set target_out_dir=%script_dir%\%out_dir%\%arch%\%config%
+set target_out_dir=%script_dir%%out_dir%\%arch%\%config%
 mkdir "%target_out_dir%"
 
 set src_dir=%winbits%\%config%
@@ -44,8 +44,8 @@ set tvtest_dir=%target_out_dir%\TVTest
 set edcb_dir=%target_out_dir%\EDCB
 set plugin_dir=%tvtest_dir%\Plugins
 
-rmdir /S "%tvtest_dir%"
-rmdir /S "%edcb_dir%"
+rmdir /S /Q "%tvtest_dir%"
+rmdir /S /Q "%edcb_dir%"
 
 
 @REM  ----------------------------------------------------------------
