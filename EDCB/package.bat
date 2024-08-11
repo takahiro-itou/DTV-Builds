@@ -74,6 +74,14 @@ COPY /V /B  "%src_dir%\Write\Write_OneService.dll"  "%dst_dir%\EdcbPlugIn\"  /B
 XCOPY /E /V ini/HttpPublic                  "%dst_dir%\HttpPublic"
 COPY /V /B  "%src_dir%\RecName\RecName_Macro.dll"   "%dst_dir%\RecName\"  /B
 
+pushd  "ini\Tools"
+COPY /V /B  "mail_credential.bat"       "%dst_dir%\Tools\"  /B
+COPY /V /B  "mail_credential.ps1"       "%dst_dir%\Tools\"  /B
+COPY /V /B  "tsidmove_helper.bat"       "%dst_dir%\Tools\"  /B
+COPY /V /B  "watchip.bat"               "%dst_dir%\Tools\"  /B
+COPY /V /B  "watchip.ps1"               "%dst_dir%\Tools\"  /B
+popd
+
 popd
 
 
