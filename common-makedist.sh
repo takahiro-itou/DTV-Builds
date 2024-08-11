@@ -52,36 +52,12 @@ rm -rf "${edcb_dir}"
 ##    TVTest  のバイナリをディレクトリに配置する
 ##
 
-pushd TVTest
-
-##  TVTest  のパッケージスクリプトを呼び出し
-
-pushd TVTest
-/bin/bash  "package.sh"         \
-    -a  "${arch}"               \
-    -c  "${runtime}"            \
-    -l  all                     \
-    -o  "${work_dir}/tvtest"    \
-    -r  ''                      \
-    -t  "${config}"             \
+"${script_dir}/TVTest/common-makedist.sh"   \
+    "${tvtest_dir}"     \
+    "${arch}"           \
+    "${config}"         \
+    "${runtime}"        \
 ;
-mv -v  "${work_dir}/tvtest/${arch}/${config}"       "${tvtest_dir}"
-
-##  プラグインをコピー
-
-cd  sdk/Samples/
-cp -pv DiskRelay/DiskRelay.txt                      "${plugin_dir}"
-cp -pv MemoryCapture/MemoryCapture.txt              "${plugin_dir}"
-popd
-
-##  その他のファイルをコピー
-
-cp -pv CasProcessor/${src_dir}/CasProcessor.tvtp    "${plugin_dir}"
-cp -pv TvCas/${src_dir}/B25.tvcas                   "${tvtest_dir}"
-
-mkdir -p "${tvtest_dir}/BonDriver"
-
-popd
 
 ######################################################################
 ##    EDCB  のバイナリをディレクトリに配置する

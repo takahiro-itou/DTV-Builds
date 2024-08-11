@@ -52,36 +52,12 @@ rmdir /S "%edcb_dir%"
 @REM   "TVTest  のバイナリをディレクトリに配置する"
 @REM
 
-pushd TVTest
+CALL  "TVTest\common-makedist.bat"  ^
+    %tvtest_dir%    ^
+    %arch%          ^
+    %config%        ^
+    %runtime%
 
-@REM   "TVTest  のパッケージスクリプトを呼び出し"
-
-mkdir "%tvtest_dir%"
-mkdir "%plugin_dir%"
-CALL  "package.bat"     ^
-    %arch%              ^
-    %runtime%           ^
-    %config%            ^
-    %src_dir%           ^
-    %tvtest_dir%
-
-pushd TVTest
-
-@REM   "プラグインをコピー"
-
-cd  "sdk\Samples"
-COPY /V /B  DiskRelay\DiskRelay.txt             "%plugin_dir%\" /B
-COPY /V /B  MemoryCapture\MemoryCapture.txt     "%plugin_dir%\" /B
-popd
-
-@REM   "その他のファイルをコピー"
-
-COPY /V /B  CasProcessor\%src_dir%\CasProcessor.tvtp    "%plugin_dir%\" /B
-COPY /V /B  TvCas\%src_dir%\B25.tvcas       "%tvtest_dir%\" /B
-
-mkdir "%tvtest_dir%\BonDriver"
-
-popd
 
 @REM  ----------------------------------------------------------------
 @REM   "EDCB  のバイナリをディレクトリに配置する"
