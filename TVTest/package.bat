@@ -11,11 +11,11 @@ setlocal
 set script_dir=%~dp0
 pushd "%script_dir%"
 
-arch=%1
-runtime=%2
-config=%3
-src_dir=%4
-dst_dir=%5
+set arch=%1
+set runtime=%2
+set config=%3
+set src_dir=%4
+set dst_dir=%5
 
 IF /i "%runtime%" == "static" (
     set plugin_src_dir=sdk\Samples\%winbits%\%config%_static
