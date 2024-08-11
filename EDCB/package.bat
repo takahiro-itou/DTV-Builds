@@ -61,6 +61,19 @@ COPY /V /B  "ini\EpgTimerSrv_Install.bat"   "%dst_dir%\" /B
 COPY /V /B  "ini\EpgTimerSrv_Remove.bat"    "%dst_dir%\" /B
 COPY /V /B  "ini\EpgTimerSrv_Setting.bat"   "%dst_dir%\" /B
 
+COPY /V /B  "%src_dir%\EdcbPlugIn.tvtp"     "%dst_dir%\EdcbPlugIn\"  /B
+
+pushd  "EdcbPlugIn\EdcbPlugIn\"
+COPY /V /B  "ch2chset.vbs"                  "%dst_dir%\EdcbPlugIn\" /B
+COPY /V /B  "EdcbPlugIn.ini"                "%dst_dir%\EdcbPlugIn\" /B
+COPY /V /B  "EdcbPlugIn_Readme.txt"         "%dst_dir%\EdcbPlugIn\" /B
+popd
+
+COPY /V /B  "%src_dir%\Write\Write_OneService.dll"  "%dst_dir%\EdcbPlugIn\"  /B
+
+XCOPY /E /V ini/HttpPublic                  "%dst_dir%\HttpPublic"
+COPY /V /B  "%src_dir%\RecName\RecName_Macro.dll"   "%dst_dir%\RecName\"  /B
+
 popd
 
 
