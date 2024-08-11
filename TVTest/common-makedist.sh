@@ -76,6 +76,6 @@ mkdir -p "${dst_dir}/BonDriver"
 ##
 
 popd
-echo  "パッケージ用ディレクトリ ${target_out_dir} の準備完了"
+echo  "パッケージ用ディレクトリ ${dst_dir} の準備完了"
 
 exit  0
