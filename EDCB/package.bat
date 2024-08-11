@@ -51,6 +51,16 @@ COPY /V /B  "ini\Tools\IBonCast\%src2_dir%\IBonCast.dll"  "%dst_dir%\" /B
 COPY /V /B  "%src_dir%\SendTSTCP.dll"       "%dst_dir%\" /B
 COPY /V /B  "LICENSE-Civetweb.md"           "%dst_dir%\" /B
 
+COPY /V /B  "Document\*.txt"                "%dst_dir%\" /B
+
+COPY /V /B  "ini\Bitrate.ini"               "%dst_dir%\" /B
+COPY /V /B  "ini\BonCtrl.ini"               "%dst_dir%\" /B
+COPY /V /B  "ini\ContentTypeText.txt"       "%dst_dir%\" /B
+COPY /V /B  "ini\EpgTimer.exe.rd.xaml"      "%dst_dir%\" /B
+COPY /V /B  "ini\EpgTimerSrv_Install.bat"   "%dst_dir%\" /B
+COPY /V /B  "ini\EpgTimerSrv_Remove.bat"    "%dst_dir%\" /B
+COPY /V /B  "ini\EpgTimerSrv_Setting.bat"   "%dst_dir%\" /B
+
 popd
 
 
