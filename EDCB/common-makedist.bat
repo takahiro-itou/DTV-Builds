@@ -41,8 +41,6 @@ set work_dir=%script_dir%\Packages.work
 @REM   "EDCB  のバイナリをディレクトリに配置する"
 @REM
 
-pushd EDCB
-
 @REM   "EDCB  のパッケージスクリプトを呼び出し"
 
 mkdir "%edcb_dir%"
@@ -59,8 +57,6 @@ CALL  "package.bat"     ^
 
 mkdir  "%edcb_dir%\HttpPublic"
 mkdir  "%edcb_dir%\PostBatExamples"
-
-popd
 
 
 @REM  ====================================================================

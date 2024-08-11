@@ -41,8 +41,6 @@ work_dir="${script_dir}/Packages.work"
 ##    EDCB  のバイナリをディレクトリに配置する
 ##
 
-pushd EDCB
-
 ##  EDCB  のパッケージスクリプトを呼び出し
 
 pushd EDCB
@@ -59,8 +57,6 @@ popd
 
 mkdir -p "${edcb_dir}/HttpPublic"
 mkdir -p "${edcb_dir}/PostBatExamples"
-
-popd
 
 
 ##########################################################################
