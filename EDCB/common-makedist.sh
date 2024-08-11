@@ -32,6 +32,14 @@ if [[ "X${config}Y" = 'XDebugY' ]] ; then
     runtime=''
 fi
 
+if [[ "X${arch}Y" = 'Xx86Y' ]] ; then
+    arch2=''
+    src2_dir="${config}"
+else
+    arch2="${arch}"
+    src2_dir="${arch}/${config}"
+fi
+
 src_dir="${arch}/${config}"
 
 work_dir="${script_dir}/Packages.work"

@@ -32,6 +32,14 @@ IF /i "%config%" == "Debug" (
     set runtime=
 )
 
+IF /i "%arch%" == "x86" (
+    set arch2=
+    set src2_dir=%config%
+) ELSE (
+    set arch2=%arch%
+    set src2_dir=%arch%\%config%
+)
+
 set src_dir=%arch%\%config%
 
 set work_dir=%script_dir%\Packages.work
