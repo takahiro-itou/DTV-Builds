@@ -1,13 +1,12 @@
 
-@ECHO ON
 setlocal
-
 
 @REM  ====================================================================
 @REM
 @REM   "各バージョンのパッケージ用ディレクトリを準備する"
 @REM
 
+set script_file=%0
 set script_dir=%~dp0
 pushd "%script_dir%"
 

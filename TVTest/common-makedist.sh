@@ -8,10 +8,7 @@
 
 script_file=${BASH_SOURCE:-$0}
 script_dir=$(readlink -f "$(dirname "${script_file}")")
-
 pushd  "${script_dir}"
-
-out_dir='Packages.bash'
 
 
 ##########################################################################
