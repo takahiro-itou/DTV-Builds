@@ -43,20 +43,20 @@ set work_dir=%script_dir%\Packages.work
 
 @REM   "EDCB  のパッケージスクリプトを呼び出し"
 
-mkdir "%edcb_dir%"
+mkdir "%dst_dir%"
 CALL  "package.bat"     ^
     %arch%              ^
     %runtime%           ^
     %config%            ^
     %src_dir%           ^
-    %edcb_dir%
+    %dst_dir%
 
 
 
 @REM   "追加のディレクトリを作成"
 
-mkdir  "%edcb_dir%\HttpPublic"
-mkdir  "%edcb_dir%\PostBatExamples"
+mkdir  "%dst_dir%\HttpPublic"
+mkdir  "%dst_dir%\PostBatExamples"
 
 
 @REM  ====================================================================

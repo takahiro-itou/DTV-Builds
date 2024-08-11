@@ -50,13 +50,13 @@ pushd EDCB
     -r  ''                      \
     -t  "${config}"             \
 ;
-mv -v  "${work_dir}/edcb/${arch}/${config}"         "${edcb_dir}"
+mv -v  "${work_dir}/edcb/${arch}/${config}"         "${dst_dir}"
 popd
 
 ##  追加のディレクトリを作成
 
-mkdir -p "${edcb_dir}/HttpPublic"
-mkdir -p "${edcb_dir}/PostBatExamples"
+mkdir -p "${dst_dir}/HttpPublic"
+mkdir -p "${dst_dir}/PostBatExamples"
 
 
 ##########################################################################
