@@ -58,6 +58,23 @@ CALL  "package.bat"     ^
 mkdir  "%dst_dir%\HttpPublic"
 mkdir  "%dst_dir%\PostBatExamples"
 
+@REM   "その他のファイルをコピー"
+
+pushd  "libaribb25\%winbits%\%config%"
+COPY /V /B "libaribb25.dll"                 "%dst_dir%\B25Decoder.dll"  /B
+popd
+
+COPY /V /B  "lua\%src2_dir%\lua52.dll"              "%dst_dir%\"  /B
+COPY /V /B  "lua-zlib\%src2_dir%\zlib52.dll"        "%dst_dir%\"  /B
+COPY /V /B  "psisiarc\%src2_dir%\psisiarc.exe"      "%dst_dir%\Tools"  /B
+COPY /V /B  "psisimux\%src2_dir%\psisimux.exe"      "%dst_dir%\Tools"  /B
+COPY /V /B  "tsmemseg\%src2_dir%\tsmemseg.exe"      "%dst_dir%\Tools"  /B
+COPY /V /B  "tsreadex\%src2_dir%\tsreadex.exe"      "%dst_dir%\Tools"  /B
+COPY /V /B  "tsreadex\%src2_dir%\tsreadex.exe"          ^
+            "%dst_dir%\Tools\edcbnosuspend.exe" /B
+COPY /V /B  "Write_Multi\%src2_dir%\Write_Multi.dll"    ^
+            "%dst_dir%\EdcbPlugIn\"  /B
+
 
 @REM  ====================================================================
 @REM
