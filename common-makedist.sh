@@ -64,7 +64,7 @@ rm -rf "${edcb_dir}"
 ##    EDCB  のバイナリをディレクトリに配置する
 ##
 
-"${script_dir}/EDCB/comon-makedist.sh"      \
+"${script_dir}/EDCB/common-makedist.sh"     \
     "${edcb_dir}"       \
     "${arch}"           \
     "${config}"         \
