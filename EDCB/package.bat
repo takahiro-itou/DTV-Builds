@@ -82,6 +82,19 @@ COPY /V /B  "watchip.bat"               "%dst_dir%\Tools\"  /B
 COPY /V /B  "watchip.ps1"               "%dst_dir%\Tools\"  /B
 popd
 
+pushd  "ini\Tools\tsidmove\%src2_dir%"
+COPY /V /B  "tsidmove.exe"              "%dst_dir%\Tools\"  /B
+popd
+
+pushd  "ini\Tools\%src2_dir%"
+COPY /V /B  "asyncbuf.exe"              "%dst_dir%\Tools\"  /B
+COPY /V /B  "relayread.exe"             "%dst_dir%\Tools\"  /B
+popd
+
+pushd  "%src_dir%"
+COPY /V /B  "Write\Write_Default.dll"   "%dst_dir%\Write\"  /B
+popd
+
 popd
 
 
