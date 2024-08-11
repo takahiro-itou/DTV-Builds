@@ -64,27 +64,12 @@ CALL  "TVTest\common-makedist.bat"  ^
 @REM   "EDCB  のバイナリをディレクトリに配置する"
 @REM
 
-pushd EDCB
-set src_dir=%arch%\%config%
+CALL  "EDCB\common-makedist.bat"    ^
+    %edcb_dir%      ^
+    %arch%          ^
+    %config%        ^
+    %runtime%
 
-@REM   "EDCB  のパッケージスクリプトを呼び出し"
-
-mkdir "%edcb_dir%"
-CALL  "package.bat"     ^
-    %arch%              ^
-    %runtime%           ^
-    %config%            ^
-    %src_dir%           ^
-    %edcb_dir%
-
-
-
-@REM   "追加のディレクトリを作成"
-
-mkdir  "%edcb_dir%\HttpPublic"
-mkdir  "%edcb_dir%\PostBatExamples"
-
-popd
 
 
 @REM  ====================================================================

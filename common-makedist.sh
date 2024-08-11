@@ -64,27 +64,12 @@ rm -rf "${edcb_dir}"
 ##    EDCB  のバイナリをディレクトリに配置する
 ##
 
-pushd EDCB
-src_dir="${arch}/${config}"
-
-##  EDCB  のパッケージスクリプトを呼び出し
-
-pushd EDCB
-/bin/bash  "package.sh"         \
-    -a  "${arch}"               \
-    -o  "${work_dir}/edcb"      \
-    -r  ''                      \
-    -t  "${config}"             \
+"${script_dir}/EDCB/comon-makedist.sh"      \
+    "${edcb_dir}"       \
+    "${arch}"           \
+    "${config}"         \
+    "${runtime}"        \
 ;
-mv -v  "${work_dir}/edcb/${arch}/${config}"         "${edcb_dir}"
-popd
-
-##  追加のディレクトリを作成
-
-mkdir -p "${edcb_dir}/HttpPublic"
-mkdir -p "${edcb_dir}/PostBatExamples"
-
-popd
 
 
 ##########################################################################
