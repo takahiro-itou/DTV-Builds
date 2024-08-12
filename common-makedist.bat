@@ -34,10 +34,9 @@ IF /i "%arch%" == "x86" (
 set target_out_dir=%script_dir%%out_dir%\%arch%\%config%
 mkdir "%target_out_dir%"
 
-
 set tvtest_dir=%target_out_dir%\TVTest
 set edcb_dir=%target_out_dir%\EDCB
-set plugin_dir=%tvtest_dir%\Plugins
+
 
 rmdir /S /Q "%tvtest_dir%"
 rmdir /S /Q "%edcb_dir%"
