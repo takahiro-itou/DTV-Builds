@@ -59,14 +59,17 @@ pushd TVTest
 @REM   "プラグインをコピー"
 
 cd  "sdk\Samples"
-COPY /V /B  DiskRelay\DiskRelay.txt             "%plugin_dir%\" /B
-COPY /V /B  MemoryCapture\MemoryCapture.txt     "%plugin_dir%\" /B
+COPY /V /B  DiskRelay\DiskRelay.txt             "%plugin_dir%\"  /B
+COPY /V /B  MemoryCapture\MemoryCapture.txt     "%plugin_dir%\"  /B
 popd
 
 @REM   "その他のファイルをコピー"
 
-COPY /V /B  CasProcessor\%src_dir%\CasProcessor.tvtp    "%plugin_dir%\" /B
-COPY /V /B  TvCas\%src_dir%\B25.tvcas           "%dst_dir%\" /B
+pushd "CasProcessor\%src_dir%\"
+COPY /V /B  "CasProcessor.tvtp"                 "%plugin_dir%\"  /B
+popd
+
+COPY /V /B  TvCas\%src_dir%\B25.tvcas           "%dst_dir%\"  /B
 
 mkdir "%dst_dir%\BonDriver"
 
