@@ -29,10 +29,6 @@ IF /i "%arch%" == "x86" (
     set winbits=%arch%
 )
 
-IF /i "%config%" == "Debug" (
-    set runtime=
-)
-
 set src_dir=%winbits%\%config%
 
 set work_dir=%script_dir%\Packages.work
@@ -70,7 +66,7 @@ pushd "CasProcessor\%src_dir%\"
 COPY /V /B  "CasProcessor.tvtp"                 "%plugin_dir%\"  /B
 popd
 
-COPY /V /B  TvCas\%src_dir%\B25.tvcas           "%dst_dir%\"  /B
+COPY /V /B  "TvCas\%src_dir%\B25.tvcas"         "%dst_dir%\"  /B
 
 mkdir "%dst_dir%\BonDriver"
 
