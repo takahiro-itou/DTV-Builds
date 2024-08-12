@@ -1,6 +1,16 @@
 
-@ECHO ON
 setlocal
+
+
+@REM  ====================================================================
+@REM
+@REM   "全てのソリューションをビルドする"
+@REM
+
+set script_file=%0
+set script_dir=%~dp0
+pushd "%script_dir%"
+
 
 IF "%~1" == "" (
     echo no arguments passed.
@@ -13,126 +23,19 @@ set build_cmd=msbuild.exe  %common_args%
 
 
 @REM  ====================================================================
-@REM   "全てのソリューションをビルドする"
+@REM
+@REM   "ソリューションの再ターゲット"
 @REM
 
-set script_dir=%~dp0
-set prop_file="%script_dir%override.props"
-
-pushd "%script_dir%"
+set prop_file="%script_dir%..\override.props"
 dir "%prop_file%"
 
 set retarget_solution=-p:ForceImportBeforeCppProps=%prop_file%
 
 
 @REM  ----------------------------------------------------------------
-@REM   "TVTest  の全てのソリューションをビルドする"
-@REM
-
-pushd TVTest
-
-@REM   "LibISDB のビルド"
-
-pushd TVTest\src\LibISDB\Projects
-%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       LibISDB.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release     LibISDB.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release_MD  LibISDB.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       LibISDB.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Release     LibISDB.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Release_MD  LibISDB.sln
-IF errorlevel 1  GOTO  failure
-popd
-
-@REM   "TVTest  のビルド"
-
-pushd TVTest\src
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       TVTest.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release     TVTest.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release_MD  TVTest.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       TVTest.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release     TVTest.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release_MD  TVTest.sln
-IF errorlevel 1  GOTO  failure
-popd
-
-@REM   "サンプルプラグインのビルド"
-
-pushd TVTest\sdk\Samples
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug           Samples.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release         Samples.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release_static  Samples.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Debug           Samples.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release         Samples.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release_static  Samples.sln
-IF errorlevel 1  GOTO  failure
-popd
-
-@REM   "CasProcessor  のビルド"
-
-pushd  CasProcessor
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       ^
-    %retarget_solution%  CasProcessor.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release     ^
-    %retarget_solution%  CasProcessor.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       ^
-    %retarget_solution%  CasProcessor.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release     ^
-    %retarget_solution%  CasProcessor.sln
-IF errorlevel 1  GOTO  failure
-popd
-
-@REM   "TvCas のビルド"
-
-pushd  TVCas
-%build_cmd%  -p:Platform=x64   -p:Configuration=Debug           ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release         ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=ReleaseSPHD     ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Debug           ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Release         ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=ReleaseSPHD     ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-popd
-
-@REM   "TVTest  の全ソリューションのビルド完了"
-
-echo  TVTest  のビルド完了
-popd
-@REM  PAUSE
-
-@REM  ----------------------------------------------------------------
 @REM   "EDCB  の全てのソリューションをビルドする"
 @REM
-
-pushd EDCB
 
 @REM   "EDCB  のビルド"
 
@@ -285,10 +188,20 @@ echo  EDCB  のビルド完了
 popd
 REM   PAUSE
 
-GOTO  success
+
+@REM  ====================================================================
+@REM
+@REM   "完了"
+@REM
+
+popd
+echo  全ソリューションのビルド完了
+
+EXIT  /B  0
 
 
 @REM  ====================================================================
+@REM
 @REM   "ビルド失敗"
 @REM
 
@@ -308,14 +221,5 @@ echo  ビルドに失敗しました : %build_error%
 IF  %build_error% LSS 1 (
     set build_error=1
 )
+
 EXIT /B %build_error%
-
-
-@REM  ====================================================================
-@REM   "全てのソリューションのビルド完了"
-@REM
-
-:success
-echo  全ソリューションのビルド完了
-popd
-PAUSE
