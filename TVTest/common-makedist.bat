@@ -22,6 +22,7 @@ set arch=%2
 set config=%3
 set runtime=%4
 
+
 IF /i "%arch%" == "x86" (
     set winbits=Win32
 ) ELSE (

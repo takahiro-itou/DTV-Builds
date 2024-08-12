@@ -18,6 +18,16 @@ set src_dir=%4
 set runtime=%5
 
 
+IF /i "%arch%" == "x86" (
+    set winbits=Win32
+) ELSE (
+    set winbits=%arch%
+)
+
+IF /i "%config%" == "Debug" (
+    set runtime=
+)
+
 IF /i "%runtime%" == "static" (
     set plugin_src_dir=sdk\Samples\%winbits%\%config%_static
 ) ELSE (
