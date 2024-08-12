@@ -43,7 +43,7 @@ mkdir  "%dst_dir%\Tools"
 mkdir  "%dst_dir%\Write"
 
 mkdir  "%dst_dir%\HttpPublic"
-mkdir  "%dst_dir%PostBatExamples"
+mkdir  "%dst_dir%\PostBatExamples"
 
 COPY /V /B  "%src_dir%\*.dll"               "%dst_dir%\" /B
 COPY /V /B  "%src_dir%\*.exe"               "%dst_dir%\" /B
