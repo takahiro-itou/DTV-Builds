@@ -45,19 +45,24 @@ mkdir  "%dst_dir%\Write"
 mkdir  "%dst_dir%\HttpPublic"
 mkdir  "%dst_dir%\PostBatExamples"
 
-COPY /V /B  "%src_dir%\*.exe"               "%dst_dir%\" /B
-COPY /V /B  "%src_dir%\EpgDataCap3.dll"     "%dst_dir%\" /B
-COPY /V /B  "%src_dir%\SendTSTCP.dll"       "%dst_dir%\" /B
-COPY /V /B  "%src_dir%\EpgTimer.exe"        "%dst_dir%\EpgTimerNW.exe" /B
-COPY /V /B  "%src_dir%\EpgTimerPlugIn.tvtp" "%dst_dir%\" /B
+COPY /V /B  "%src_dir%\*.exe"               "%dst_dir%\"  /B
+COPY /V /B  "%src_dir%\EpgTimer.exe"        "%dst_dir%\"  /B
+COPY /V /B  "%src_dir%\EpgTimer.exe"        "%dst_dir%\EpgTimerNW.exe"  /B
+COPY /V /B  "%src_dir%\EpgTimerAdminProxy.exe"  "%dst_dir%\"  /B
+COPY /V /B  "%src_dir%\EpgTimerSrv.exe"     "%dst_dir%\"  /B
+
+COPY /V /B  "%src_dir%\EpgDataCap3.dll"     "%dst_dir%\"  /B
+COPY /V /B  "%src_dir%\SendTSTCP.dll"       "%dst_dir%\"  /B
+COPY /V /B  "%src_dir%\EpgTimer.exe"        "%dst_dir%\EpgTimerNW.exe"  /B
+COPY /V /B  "%src_dir%\EpgTimerPlugIn.tvtp" "%dst_dir%\"  /B
 
 pushd  "ini\Tools\IBonCast\%src2_dir%"
-COPY /V /B  "IBonCast.dll"                  "%dst_dir%\" /B
+COPY /V /B  "IBonCast.dll"                  "%dst_dir%\"  /B
 popd
 
-COPY /V /B  "LICENSE-Civetweb.md"           "%dst_dir%\" /B
+COPY /V /B  "LICENSE-Civetweb.md"           "%dst_dir%\"  /B
 
-COPY /V /B  "Document\*.txt"                "%dst_dir%\" /B
+COPY /V /B  "Document\*.txt"                "%dst_dir%\"  /B
 
 COPY /V /B  "ini\Bitrate.ini"               "%dst_dir%\" /B
 COPY /V /B  "ini\BonCtrl.ini"               "%dst_dir%\" /B
