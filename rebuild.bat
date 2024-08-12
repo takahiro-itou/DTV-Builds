@@ -1,5 +1,6 @@
 chcp  65001
 
-pushd "%~dp0"
-CALL  common-build.bat  Rebuild
-popd
+set script_file=%0
+set script_dir=%~dp0
+
+CALL  "%script_dir%common-build.bat"  Rebuild
