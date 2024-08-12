@@ -42,6 +42,9 @@ mkdir  "%dst_dir%\Setting"
 mkdir  "%dst_dir%\Tools"
 mkdir  "%dst_dir%\Write"
 
+mkdir  "%dst_dir%\HttpPublic"
+mkdir  "%dst_dir%PostBatExamples"
+
 COPY /V /B  "%src_dir%\*.dll"               "%dst_dir%\" /B
 COPY /V /B  "%src_dir%\*.exe"               "%dst_dir%\" /B
 COPY /V /B  "%src_dir%\EpgTimer.exe"        "%dst_dir%\EpgTimerNW.exe" /B
@@ -69,7 +72,8 @@ COPY /V /B  "EdcbPlugIn.ini"                "%dst_dir%\EdcbPlugIn\" /B
 COPY /V /B  "EdcbPlugIn_Readme.txt"         "%dst_dir%\EdcbPlugIn\" /B
 popd
 
-XCOPY /E /V ini/HttpPublic                  "%dst_dir%\HttpPublic"
+XCOPY /E /V "ini\HttpPublic"                "%dst_dir%\HttpPublic\"
+XCOPY /E /V "ini\PostBatExamples"           "%dst_dir%\PostBatExamples\"
 
 pushd  "ini\Tools"
 COPY /V /B  "mail_credential.bat"           "%dst_dir%\Tools\"  /B
