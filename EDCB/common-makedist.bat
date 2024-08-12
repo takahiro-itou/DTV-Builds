@@ -50,7 +50,7 @@ CALL  "package.bat"     ^
     %dst_dir%           ^
     %config%            ^
     %src_dir%           ^
-    EDCB
+;
 
 
 

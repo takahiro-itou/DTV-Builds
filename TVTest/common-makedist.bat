@@ -49,7 +49,7 @@ CALL  "package.bat"     ^
     %config%            ^
     %src_dir%           ^
     %runtime%           ^
-    TVTest
+;
 
 pushd TVTest
 

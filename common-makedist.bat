@@ -44,8 +44,8 @@ CALL  "TVTest\common-makedist.bat"  ^
     %tvtest_dir%    ^
     %arch%          ^
     %config%        ^
-    %runtime%
-
+    %runtime%       ^
+;
 
 
 @REM  ----------------------------------------------------------------
@@ -56,8 +56,8 @@ CALL  "EDCB\common-makedist.bat"    ^
     %edcb_dir%      ^
     %arch%          ^
     %config%        ^
-    %runtime%
-
+    %runtime%       ^
+;
 
 
 @REM  ====================================================================
