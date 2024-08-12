@@ -1,5 +1,5 @@
 
-@ECHO ON
+@ECHO OFF
 setlocal
 
 
