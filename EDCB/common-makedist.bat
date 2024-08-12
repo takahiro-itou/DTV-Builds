@@ -20,7 +20,7 @@ pushd "%script_dir%"
 set dst_dir=%1
 set arch=%2
 set config=%3
-set runtime=%4
+
 
 IF /i "%arch%" == "x86" (
     set winbits="Win32"
@@ -28,9 +28,6 @@ IF /i "%arch%" == "x86" (
     set winbits=%arch%
 )
 
-IF /i "%config%" == "Debug" (
-    set runtime=
-)
 
 IF /i "%arch%" == "x86" (
     set arch2=
@@ -54,11 +51,11 @@ set work_dir=%script_dir%\Packages.work
 mkdir "%dst_dir%"
 CALL  "package.bat"     ^
     %arch%              ^
-    %runtime%           ^
     %dst_dir%           ^
     %config%            ^
     %src_dir%           ^
     EDCB
+
 
 
 @REM   "追加のディレクトリを作成"

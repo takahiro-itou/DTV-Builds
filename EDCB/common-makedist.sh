@@ -20,7 +20,7 @@ pushd  "${script_dir}"
 dst_dir=$1
 arch=$2
 config=$3
-runtime=$4
+
 
 if [[ "${arch}" == 'x86' ]] ; then
     winbits='Win32'
@@ -28,9 +28,6 @@ else
     winbits="${arch}"
 fi
 
-if [[ "X${config}Y" = 'XDebugY' ]] ; then
-    runtime=''
-fi
 
 if [[ "X${arch}Y" = 'Xx86Y' ]] ; then
     arch2=''
