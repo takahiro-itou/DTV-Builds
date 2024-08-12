@@ -37,7 +37,6 @@ IF /i "%config%" == "Debug" (
 set target_out_dir=%script_dir%%out_dir%\%arch%\%config%
 mkdir "%target_out_dir%"
 
-set src_dir=%winbits%\%config%
 
 set work_dir=%script_dir%\Packages.work
 set tvtest_dir=%target_out_dir%\TVTest

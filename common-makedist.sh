@@ -37,7 +37,6 @@ fi
 target_out_dir="${script_dir}/${out_dir}/${arch}/${config}"
 mkdir -p "${target_out_dir}"
 
-src_dir="${winbits}/${config}"
 
 work_dir="${script_dir}/Packages.work"
 tvtest_dir="${target_out_dir}/TVTest"
