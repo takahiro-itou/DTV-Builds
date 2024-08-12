@@ -23,7 +23,7 @@ set config=%3
 set runtime=%4
 
 IF /i "%arch%" == "x86" (
-    set winbits="Win32"
+    set winbits=Win32
 ) ELSE (
     set winbits=%arch%
 )
@@ -48,10 +48,10 @@ mkdir "%dst_dir%"
 mkdir "%plugin_dir%"
 CALL  "package.bat"     ^
     %arch%              ^
-    %runtime%           ^
     %dst_dir%           ^
     %config%            ^
     %src_dir%           ^
+    %runtime%           ^
     TVTest
 
 pushd TVTest
