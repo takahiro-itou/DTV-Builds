@@ -45,8 +45,9 @@ mkdir  "%dst_dir%\Write"
 mkdir  "%dst_dir%\HttpPublic"
 mkdir  "%dst_dir%\PostBatExamples"
 
-COPY /V /B  "%src_dir%\*.dll"               "%dst_dir%\" /B
 COPY /V /B  "%src_dir%\*.exe"               "%dst_dir%\" /B
+COPY /V /B  "%src_dir%\EpgDataCap3.dll"     "%dst_dir%\" /B
+COPY /V /B  "%src_dir%\SendTSTCP.dll"       "%dst_dir%\" /B
 COPY /V /B  "%src_dir%\EpgTimer.exe"        "%dst_dir%\EpgTimerNW.exe" /B
 COPY /V /B  "%src_dir%\EpgTimerPlugIn.tvtp" "%dst_dir%\" /B
 
