@@ -24,18 +24,14 @@ set config=%3
 
 IF /i "%arch%" == "x86" (
     set winbits="Win32"
-) ELSE (
-    set winbits=%arch%
-)
-
-
-IF /i "%arch%" == "x86" (
     set arch2=
     set src2_dir=%config%
 ) ELSE (
+    set winbits=%arch%
     set arch2=%arch%
     set src2_dir=%arch%\%config%
 )
+
 
 set src_dir=%arch%\%config%
 

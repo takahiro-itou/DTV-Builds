@@ -22,20 +22,16 @@ arch=$2
 config=$3
 
 
-if [[ "${arch}" == 'x86' ]] ; then
-    winbits='Win32'
-else
-    winbits="${arch}"
-fi
-
-
 if [[ "X${arch}Y" = 'Xx86Y' ]] ; then
+    winbits='Win32'
     arch2=''
     src2_dir="${config}"
 else
+    winbits="${arch}"
     arch2="${arch}"
     src2_dir="${arch}/${config}"
 fi
+
 
 src_dir="${arch}/${config}"
 
