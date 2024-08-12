@@ -103,6 +103,7 @@ EXIT  /B  0
 :failure
 
 set build_error=%errorlevel%
+popd
 
 echo  ビルドに失敗しました : %build_error%
 IF  %build_error% LSS 1 (
