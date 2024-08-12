@@ -27,10 +27,7 @@ set build_cmd=msbuild.exe  %common_args%
 @REM   "ソリューションの再ターゲット"
 @REM
 
-set prop_file="%script_dir%..\override.props"
-dir "%prop_file%"
-
-set retarget_solution=-p:ForceImportBeforeCppProps=%prop_file%
+set retarget_solution=-p:PlatformToolset=v142;WindowsTargetPlatformVersion=10.0
 
 
 @REM  ----------------------------------------------------------------
