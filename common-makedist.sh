@@ -38,7 +38,6 @@ target_out_dir="${script_dir}/${out_dir}/${arch}/${config}"
 mkdir -p "${target_out_dir}"
 
 
-work_dir="${script_dir}/Packages.work"
 tvtest_dir="${target_out_dir}/TVTest"
 edcb_dir="${target_out_dir}/EDCB"
 plugin_dir="${tvtest_dir}/Plugins"

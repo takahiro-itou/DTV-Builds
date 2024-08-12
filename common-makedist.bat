@@ -38,7 +38,6 @@ set target_out_dir=%script_dir%%out_dir%\%arch%\%config%
 mkdir "%target_out_dir%"
 
 
-set work_dir=%script_dir%\Packages.work
 set tvtest_dir=%target_out_dir%\TVTest
 set edcb_dir=%target_out_dir%\EDCB
 set plugin_dir=%tvtest_dir%\Plugins
