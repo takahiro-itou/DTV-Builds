@@ -46,6 +46,7 @@ mkdir  "%dst_dir%\PostBatExamples"
 
 
 pushd  "%src_dir%\"
+COPY /V /B  "EpgDataCap_Bon.exe"            "%dst_dir%\"  /B
 COPY /V /B  "EpgTimer.exe"                  "%dst_dir%\"  /B
 COPY /V /B  "EpgTimer.exe"                  "%dst_dir%\EpgTimerNW.exe"  /B
 COPY /V /B  "EpgTimerAdminProxy.exe"        "%dst_dir%\"  /B
