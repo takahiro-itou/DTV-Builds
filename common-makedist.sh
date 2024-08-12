@@ -24,12 +24,6 @@ arch=$1
 config=$2
 runtime=$3
 
-if [[ "${arch}" == 'x86' ]] ; then
-    winbits='Win32'
-else
-    winbits="${arch}"
-fi
-
 
 target_out_dir="${script_dir}/${out_dir}/${arch}/${config}"
 mkdir -p "${target_out_dir}"

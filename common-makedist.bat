@@ -24,12 +24,6 @@ set arch=%1
 set config=%2
 set runtime=%3
 
-IF /i "%arch%" == "x86" (
-    set winbits="Win32"
-) ELSE (
-    set winbits=%arch%
-)
-
 
 set target_out_dir=%script_dir%%out_dir%\%arch%\%config%
 mkdir "%target_out_dir%"
