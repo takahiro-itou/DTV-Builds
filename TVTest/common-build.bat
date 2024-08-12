@@ -128,12 +128,6 @@ IF errorlevel 1  GOTO  failure
 IF errorlevel 1  GOTO  failure
 popd
 
-@REM   "TVTest  の全ソリューションのビルド完了"
-
-echo  TVTest  のビルド完了
-
-@REM  PAUSE
-
 
 @REM  ====================================================================
 @REM
