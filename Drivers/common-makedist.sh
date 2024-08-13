@@ -70,8 +70,8 @@ cp -pv  "BonDriver_PX4.dll"             "${trg_dir}/BonDriver_PX-MLT.dll"
 cp -pv  "DriverHost_PX4.exe"            "${trg_dir}/"
 popd
 
-pushd "px4_drv\winusb\pkg\"
-cd  "BonDriver_PX4\"
+pushd "px4_drv/winusb/pkg/"
+cd  "BonDriver_PX4/"
 cp -pv  "BonDriver_PX-MLT.ini"          "${trg_dir}/"
 cp -pv  "BonDriver_PX4-T.ChSet.txt"     "${trg_dir}/"
 cp -pv  "BonDriver_PX4-S.ChSet.txt"     "${trg_dir}/"
