@@ -23,58 +23,62 @@ set config=%3
 set runtime=%4
 
 
-IF /i "%arch%" == "x86" (
-    set winbits=Win32
-) ELSE (
-    set winbits=%arch%
+IF /i "%config%" == "Debug" (
+    set runtime=
 )
 
-set src_dir=%winbits%\%config%
+IF /i "%runtime%" == "static" (
+    set src_dir=build\%arch%\%config%-static
+) ELSE (
+    set src_dir=build\%arch%\%config%
+)
 
-set work_dir=%script_dir%\Packages.work
-set plugin_dir=%dst_dir%\Plugins
+mkdir "%dst_dir%\BonDriver_PX4"
+mkdir "%dst_dir%\BonDriver_PX-MLT"
 
 
 @REM  ----------------------------------------------------------------
-@REM   "TVTest  のバイナリをディレクトリに配置する"
+@REM   "Drivers のバイナリをディレクトリに配置する"
 @REM
 
-@REM   "TVTest  のパッケージスクリプトを呼び出し"
+@REM   "BonDriver_PX4"
 
-mkdir "%dst_dir%"
-mkdir "%plugin_dir%"
-CALL  "package.bat"     ^
-    %arch%              ^
-    %dst_dir%           ^
-    %config%            ^
-    %src_dir%           ^
-    %runtime%           ^
-;
-
-pushd TVTest
-
-@REM   "プラグインをコピー"
-
-cd  "sdk\Samples"
-COPY /V /B  "DiskRelay\DiskRelay.txt"           "%plugin_dir%\"  /B
-COPY /V /B  "MemoryCapture\MemoryCapture.txt"   "%plugin_dir%\"  /B
+set trg_dir=%dst_dir%\BonDriver_PX4
+pushd "px4_drv\winusb\%src_dir%\"
+COPY /V /B  "BonDriver_PX4.dll"             "%trg_dir%\BonDriver_PX4-T.dll"  /B
+COPY /V /B  "BonDriver_PX4.dll"             "%trg_dir%\BonDriver_PX4-S.dll"  /B
+COPY /V /B  "DriverHost_PX4.exe"            "%trg_dir%\"  /B
 popd
 
-@REM   "その他のファイルをコピー"
-
-pushd "CasProcessor\%src_dir%\"
-COPY /V /B  "CasProcessor.tvtp"                 "%plugin_dir%\"  /B
+pushd "px4_drv\winusb\pkg\"
+cd  "BonDriver_PX4\"
+COPY /V /B  "BonDriver_PX4-T.ini"           "%trg_dir%\"  /B
+COPY /V /B  "BonDriver_PX4-T.ChSet.txt"     "%trg_dir%\"  /B
+COPY /V /B  "BonDriver_PX4-S.ini"           "%trg_dir%\"  /B
+COPY /V /B  "BonDriver_PX4-S.ChSet.txt"     "%trg_dir%\"  /B
+cd  "..\DriverHost_PX4"
+COPY /V /B  "DriverHost_PX4.ini"            "%trg_dir%\"  /B
+COPY /V /B  "it930x-firmware.bin"           "%trg_dir%\"  /B
 popd
 
-COPY /V /B  "TvCas\%src_dir%\B25.tvcas"         "%dst_dir%\"  /B
 
-pushd "TVTestVideoDecoder\"
-COPY /V /B  "doc\TVTestVideoDecoder.txt"        "%dst_dir%\"  /B
-cd  "src\%src_dir%\"
-COPY /V /B  "TVTestVideoDecoder.ax"             "%dst_dir%\"  /B
+@REM   "BonDriver_PX-MLT"
+
+set trg_dir=%dst_dir%\BonDriver_PX-MLT
+pushd "px4_drv\winusb\%src_dir%\"
+COPY /V /B  "BonDriver_PX4.dll"             "%trg_dir\BonDriver_PX-MLT.dll"  /B
+COPY /V /B  "DriverHost_PX4.exe"            "%trg_dir%\"  /B
 popd
 
-mkdir "%dst_dir%\BonDriver"
+pushd "px4_drv\winusb\pkg\"
+cd  "BonDriver_PX4\"
+COPY /V /B  "BonDriver_PX-MLT.ini"          "%trg_dir%\"  /B
+COPY /V /B  "BonDriver_PX4-T.ChSet.txt"     "%trg_dir%\"  /B
+COPY /V /B  "BonDriver_PX4-S.ChSet.txt"     "%trg_dir%\"  /B
+cd  "..\DriverHost_PX4"
+COPY /V /B  "DriverHost_PX4.ini"            "%trg_dir%\"  /B
+COPY /V /B  "it930x-firmware.bin"           "%trg_dir%\"  /B
+popd
 
 
 @REM  ====================================================================
