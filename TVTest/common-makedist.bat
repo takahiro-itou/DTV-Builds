@@ -56,8 +56,8 @@ pushd TVTest
 @REM   "プラグインをコピー"
 
 cd  "sdk\Samples"
-COPY /V /B  DiskRelay\DiskRelay.txt             "%plugin_dir%\"  /B
-COPY /V /B  MemoryCapture\MemoryCapture.txt     "%plugin_dir%\"  /B
+COPY /V /B  "DiskRelay\DiskRelay.txt"           "%plugin_dir%\"  /B
+COPY /V /B  "MemoryCapture\MemoryCapture.txt"   "%plugin_dir%\"  /B
 popd
 
 @REM   "その他のファイルをコピー"
