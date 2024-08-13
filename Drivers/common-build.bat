@@ -31,114 +31,23 @@ set retarget_solution=-p:PlatformToolset=v142;WindowsTargetPlatformVersion=10.0
 
 
 @REM  ----------------------------------------------------------------
-@REM   "TVTest  の全てのソリューションをビルドする"
+@REM   "Driver  の全てのソリューションをビルドする"
 @REM
 
-@REM   "LibISDB のビルド"
+@REM   "px4_drv のビルド"
 
-pushd TVTest\src\LibISDB\Projects
-%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       LibISDB.sln
+pushd "px4_drv\winusb\"
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug           px4_winusb.sln
 IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release     LibISDB.sln
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Release         px4_winusb.sln
 IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release_MD  LibISDB.sln
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Release-static  px4_winusb.sln
 IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       LibISDB.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug           px4_winusb.sln
 IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Release     LibISDB.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release         px4_winusb.sln
 IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Release_MD  LibISDB.sln
-IF errorlevel 1  GOTO  failure
-popd
-
-@REM   "TVTest  のビルド"
-
-pushd TVTest\src
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       TVTest.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release     TVTest.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release_MD  TVTest.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       TVTest.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release     TVTest.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release_MD  TVTest.sln
-IF errorlevel 1  GOTO  failure
-popd
-
-@REM   "サンプルプラグインのビルド"
-
-pushd TVTest\sdk\Samples
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug           Samples.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release         Samples.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release_static  Samples.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Debug           Samples.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release         Samples.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release_static  Samples.sln
-IF errorlevel 1  GOTO  failure
-popd
-
-@REM   "CasProcessor  のビルド"
-
-pushd  CasProcessor
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       ^
-    %retarget_solution%  CasProcessor.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release     ^
-    %retarget_solution%  CasProcessor.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       ^
-    %retarget_solution%  CasProcessor.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release     ^
-    %retarget_solution%  CasProcessor.sln
-IF errorlevel 1  GOTO  failure
-popd
-
-@REM   "TvCas のビルド"
-
-pushd  TVCas
-%build_cmd%  -p:Platform=x64   -p:Configuration=Debug           ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release         ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=ReleaseSPHD     ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Debug           ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Release         ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=ReleaseSPHD     ^
-    %retarget_solution%  TvCas.sln
-IF errorlevel 1  GOTO  failure
-popd
-
-@REM   "TVTestVideoDecoder  のビルド"
-
-pushd  TVTestVideoDecoder\src
-%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       ^
-    TVTestVideoDecoder.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x64   -p:Configuration=Release     ^
-    TVTestVideoDecoder.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       ^
-    TVTestVideoDecoder.sln
-IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Release     ^
-    TVTestVideoDecoder.sln
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release-static  px4_winusb.sln
 IF errorlevel 1  GOTO  failure
 popd
 
@@ -167,7 +76,7 @@ set build_error=%errorlevel%
 
 popd
 
-@REM   "その外側にもう一段 TVTest or EDCB ディレクトリへの pushd  がある"
+@REM   "その外側にもう一段 Drivers  ディレクトリへの pushd  がある"
 
 popd
 
