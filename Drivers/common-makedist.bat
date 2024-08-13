@@ -66,7 +66,7 @@ popd
 
 set trg_dir=%dst_dir%\BonDriver_PX-MLT
 pushd "px4_drv\winusb\%src_dir%\"
-COPY /V /B  "BonDriver_PX4.dll"             "%trg_dir\BonDriver_PX-MLT.dll"  /B
+COPY /V /B  "BonDriver_PX4.dll"             "%trg_dir%\BonDriver_PX-MLT.dll"  /B
 COPY /V /B  "DriverHost_PX4.exe"            "%trg_dir%\"  /B
 popd
 
