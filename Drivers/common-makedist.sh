@@ -81,6 +81,19 @@ cp -pv  "it930x-firmware.bin"           "${trg_dir}/"
 popd
 
 
+##  ドライバ
+
+trg_dir="${dst_dir}/Driver"
+if [[ -d "${trg_dir}" ]] ; then
+    echo  "Target directory %trg_dir% exists, SKIP"
+else
+    mkdir -p "${trg_dir}"
+
+    pushd "px4_drv/winusb/pkg/"
+    cp -pv  inf/*  "${trg_dir}/"
+fi
+
+
 ##########################################################################
 ##
 ##    完了
