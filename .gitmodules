@@ -19,6 +19,9 @@
 [submodule "EDCB/psisiarc"]
 	path = EDCB/psisiarc
 	url = ../psisiarc.git
+[submodule "EDCB/psisimux"]
+	path = EDCB/psisimux
+	url = ../psisimux.git
 [submodule "EDCB/tsmemseg"]
 	path = EDCB/tsmemseg
 	url = ../tsmemseg.git
@@ -28,24 +31,21 @@
 [submodule "TVTest/CasProcessor"]
 	path = TVTest/CasProcessor
 	url = ../CasProcessor.git
-[submodule "TVTest/TvCas"]
-	path = TVTest/TvCas
-	url = ../TvCas.git
+[submodule "TVTest/LAVFilters"]
+	path = TVTest/LAVFilters
+	url = ../LAVFilters.git
 [submodule "TVTest/TVTest"]
 	path = TVTest/TVTest
 	url = ../TVTest.git
+[submodule "TVTest/TVTestVideoDecoder"]
+	path = TVTest/TVTestVideoDecoder
+	url = ../TVTestVideoDecoder.git
+[submodule "TVTest/TvCas"]
+	path = TVTest/TvCas
+	url = ../TvCas.git
 [submodule "extra/LibISDB"]
 	path = extra/LibISDB
 	url = ../LibISDB.git
 [submodule "extra/fdk-aac"]
 	path = extra/fdk-aac
 	url = ../fdk-aac.git
-[submodule "EDCB/psisimux"]
-	path = EDCB/psisimux
-	url = ../psisimux.git
-[submodule "TVTest/TVTestVideoDecoder"]
-	path = TVTest/TVTestVideoDecoder
-	url = ../TVTestVideoDecoder.git
-[submodule "TVTest/LAVFilters"]
-	path = TVTest/LAVFilters
-	url = ../LAVFilters.git
