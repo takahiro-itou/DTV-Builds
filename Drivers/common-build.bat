@@ -14,7 +14,7 @@ pushd "%script_dir%"
 
 IF "%~1" == "" (
     echo no arguments passed.
-    set target=Build
+    set target=Rebuild
 ) ELSE (
     set target=%1
 )
