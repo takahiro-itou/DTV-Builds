@@ -45,4 +45,4 @@
 	url = ../psisimux.git
 [submodule "TVTest/TVTestVideoDecoder"]
 	path = TVTest/TVTestVideoDecoder
-	url = git@gitlab.com:takahiro-itou-dtv/TVTestVideoDecoder.git
+	url = ../TVTestVideoDecoder.git
