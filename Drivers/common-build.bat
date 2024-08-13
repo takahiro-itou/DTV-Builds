@@ -37,11 +37,11 @@ set retarget_solution=-p:PlatformToolset=v142;WindowsTargetPlatformVersion=10.0
 @REM   "px4_drv のビルド"
 
 pushd "px4_drv\winusb\"
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug           px4_winusb.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug           px4_winusb.sln
 IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release         px4_winusb.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release         px4_winusb.sln
 IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=Win32 -p:Configuration=Release-static  px4_winusb.sln
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release-static  px4_winusb.sln
 IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug           px4_winusb.sln
 IF errorlevel 1  GOTO  failure
