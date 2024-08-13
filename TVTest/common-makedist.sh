@@ -68,6 +68,12 @@ popd
 cp -pv CasProcessor/${src_dir}/CasProcessor.tvtp    "${plugin_dir}"
 cp -pv TvCas/${src_dir}/B25.tvcas                   "${dst_dir}"
 
+pushd "TVTestVideoDecoder/"
+cp -pv  "doc/TVTestVideoDecoder.txt"            "${dst_dir}"
+cd  "src/${src_dir}/"
+cp -pv  "TVTestVideoDecoder.ax"                 "${dst_dir}"
+popd
+
 mkdir -p "${dst_dir}/BonDriver"
 
 

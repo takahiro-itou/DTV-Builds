@@ -68,6 +68,12 @@ popd
 
 COPY /V /B  "TvCas\%src_dir%\B25.tvcas"         "%dst_dir%\"  /B
 
+pushd "TVTestVideoDecoder\"
+COPY /V /B  "doc\TVTestVideoDecoder.txt"        "%dst_dir%\"  /B
+cd  "src\%src_dir%\"
+COPY /V /B  "TVTestVideoDecoder.ax"             "%dst_dir%\"  /B
+popd
+
 mkdir "%dst_dir%\BonDriver"
 
 
