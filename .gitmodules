@@ -48,4 +48,4 @@
 	url = ../TVTestVideoDecoder.git
 [submodule "TVTest/LAVFilters"]
 	path = TVTest/LAVFilters
-	url = git@gitlab.com:takahiro-itou-dtv/LAVFilters.git
+	url = ../LAVFilters.git
