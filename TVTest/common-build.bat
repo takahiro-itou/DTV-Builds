@@ -125,6 +125,23 @@ IF errorlevel 1  GOTO  failure
 IF errorlevel 1  GOTO  failure
 popd
 
+@REM   "TVTestVideoDecoder  のビルド"
+
+pushd  TVTestVideoDecoder\src
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       ^
+    TVTestVideoDecoder.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     ^
+    TVTestVideoDecoder.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       ^
+    TVTestVideoDecoder.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=x86   -p:Configuration=Release     ^
+    TVTestVideoDecoder.sln
+IF errorlevel 1  GOTO  failure
+popd
+
 
 @REM  ====================================================================
 @REM
