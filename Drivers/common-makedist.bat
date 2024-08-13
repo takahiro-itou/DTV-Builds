@@ -81,6 +81,19 @@ COPY /V /B  "it930x-firmware.bin"           "%trg_dir%\"  /B
 popd
 
 
+@REM   "ドライバ"
+
+set trg_dir=%dst_dir%\Driver
+IF exist "%trg_dir%" (
+    echo  Target directory %trg_dir% exists, SKIP
+) ELSE (
+    mkdir "%trg_dir%"
+
+    pushd "px4_drv\winusb\pkg\"
+    COPY /V /B  inf\*  "%trg_dir%\"  /B
+)
+
+
 @REM  ====================================================================
 @REM
 @REM   "完了"
