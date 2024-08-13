@@ -134,10 +134,10 @@ IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     ^
     TVTestVideoDecoder.sln
 IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Debug       ^
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       ^
     TVTestVideoDecoder.sln
 IF errorlevel 1  GOTO  failure
-%build_cmd%  -p:Platform=x86   -p:Configuration=Release     ^
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Release     ^
     TVTestVideoDecoder.sln
 IF errorlevel 1  GOTO  failure
 popd
