@@ -30,10 +30,12 @@ mkdir "%target_out_dir%"
 
 set tvtest_dir=%target_out_dir%\TVTest
 set edcb_dir=%target_out_dir%\EDCB
+set driver_dir=%target_out_dir%\px4_drv_winusb
 
 
 rmdir /S /Q "%tvtest_dir%"
 rmdir /S /Q "%edcb_dir%"
+rmdir /S /Q "%driver_dir%"
 
 
 @REM  ----------------------------------------------------------------
@@ -54,6 +56,18 @@ CALL  "TVTest\common-makedist.bat"  ^
 
 CALL  "EDCB\common-makedist.bat"    ^
     %edcb_dir%      ^
+    %arch%          ^
+    %config%        ^
+    %runtime%       ^
+;
+
+
+@REM  ----------------------------------------------------------------
+@REM   "Drivers のバイナリをディレクトリに配置する"
+@REM
+
+CALL  "Drivers\common-makedist.bat"     ^
+    %driver_dir%    ^
     %arch%          ^
     %config%        ^
     %runtime%       ^
