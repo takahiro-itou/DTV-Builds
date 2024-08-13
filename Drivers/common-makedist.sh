@@ -23,58 +23,62 @@ config=$3
 runtime=$4
 
 
-if [[ "${arch}" == 'x86' ]] ; then
-    winbits='Win32'
-else
-    winbits="${arch}"
+if [[ "X${config}Y" = 'XDebugY' ]] ; then
+    runtime=''
 fi
 
-src_dir="${winbits}/${config}"
+if [[ "X${runtime}Y" = 'XstaticY' ]] ; then
+    src_dir="build/${arch}/${config}-static"
+else
+    src_dir="build/${arch}/${config}"
+fi
 
-work_dir="${script_dir}/Packages.work"
-plugin_dir="${dst_dir}/Plugins"
+mkdir -p "${dst_dir}/BonDriver_PX4"
+mkdir -p "${dst_dir}/BonDriver_PX-MLT"
 
 
 ##--------------------------------------------------------------------
-##    TVTest  のバイナリをディレクトリに配置する
+##    Drivers のバイナリをディレクトリに配置する
 ##
 
-##  TVTest  のパッケージスクリプトを呼び出し
+##  BonDriver_PX4
 
-pushd TVTest
-/bin/bash  "package.sh"         \
-    -a  "${arch}"               \
-    -c  "${runtime}"            \
-    -l  all                     \
-    -o  "${work_dir}/tvtest"    \
-    -r  ''                      \
-    -t  "${config}"             \
-;
-
-mv -v  "${work_dir}/tvtest/${arch}/${config}"   "${dst_dir}"
-
-##  プラグインをコピー
-
-cd  "sdk/Samples/"
-cp -pv  "DiskRelay/DiskRelay.txt"               "${plugin_dir}"
-cp -pv  "MemoryCapture/MemoryCapture.txt"       "${plugin_dir}"
+trg_dir="${dst_dir}/BonDriver_PX4"
+pushd "px4_drv/winusb/${src_dir}/"
+cp -pv  "BonDriver_PX4.dll"             "${trg_dir}/BonDriver_PX4-T.dll"
+cp -pv  "BonDriver_PX4.dll"             "${trg_dir}/BonDriver_PX4-S.dll"
+cp -pv  "DriverHost_PX4.exe"            "${trg_dir}/"
 popd
 
-##  その他のファイルをコピー
-
-pushd "CasProcessor/${src_dir}/"
-cp -pv  "CasProcessor.tvtp"                     "${plugin_dir}"
+pushd "px4_drv/winusb/pkg/"
+cd  "BonDriver_PX4/"
+cp -pv  "BonDriver_PX4-T.ini"           "${trg_dir}/"
+cp -pv  "BonDriver_PX4-T.ChSet.txt"     "${trg_dir}/"
+cp -pv  "BonDriver_PX4-S.ini"           "${trg_dir}/"
+cp -pv  "BonDriver_PX4-S.ChSet.txt"     "${trg_dir}/"
+cd  "../DriverHost_PX4/"
+cp -pv  "DriverHost_PX4.ini"            "${trg_dir}/"
+cp -pv  "it930x-firmware.bin"           "${trg_dir}/"
 popd
 
-cp -pv  "TvCas/${src_dir}/B25.tvcas"            "${dst_dir}"
 
-pushd "TVTestVideoDecoder/"
-cp -pv  "doc/TVTestVideoDecoder.txt"            "${dst_dir}"
-cd  "src/${src_dir}/"
-cp -pv  "TVTestVideoDecoder.ax"                 "${dst_dir}"
+##  BonDriver_PX-MLT
+
+trg_dir="${dst_dir}/BonDriver_PX-MLT"
+pushd "px4_drv/winusb/${src_dir}/"
+cp -pv  "BonDriver_PX4.dll"             "${trg_dir}/BonDriver_PX-MLT.dll"
+cp -pv  "DriverHost_PX4.exe"            "${trg_dir}/"
 popd
 
-mkdir -p "${dst_dir}/BonDriver"
+pushd "px4_drv\winusb\pkg\"
+cd  "BonDriver_PX4\"
+cp -pv  "BonDriver_PX-MLT.ini"          "${trg_dir}/"
+cp -pv  "BonDriver_PX4-T.ChSet.txt"     "${trg_dir}/"
+cp -pv  "BonDriver_PX4-S.ChSet.txt"     "${trg_dir}/"
+cd  "..\DriverHost_PX4"
+cp -pv  "DriverHost_PX4.ini"            "${trg_dir}/"
+cp -pv  "it930x-firmware.bin"           "${trg_dir}/"
+popd
 
 
 ##########################################################################
