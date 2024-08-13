@@ -43,6 +43,15 @@ IF errorlevel 1  GOTO  failure
 
 @REM  ====================================================================
 @REM
+@REM   "Drivers の全てのソリューションをビルドする"
+@REM
+
+CALL  "Drivers\common-build.bat"  %target%
+IF errorlevel 1  GOTO  failure
+
+
+@REM  ====================================================================
+@REM
 @REM   "全てのソリューションのビルド完了"
 @REM
 
