@@ -23,10 +23,14 @@ config=$3
 runtime=$4
 
 
-if [[ "${arch}" == 'x86' ]] ; then
+if [[ "X${arch}Y" == 'Xx86Y' ]] ; then
     winbits='Win32'
 else
     winbits="${arch}"
+fi
+
+if [[ "X${config}Y" == "XDebugY" ]] ; then
+    runtime=
 fi
 
 src_dir="${winbits}/${config}"
