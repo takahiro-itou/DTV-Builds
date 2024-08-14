@@ -16,7 +16,7 @@ IF "%~1" == "" (
     echo no arguments passed.
     set target=Rebuild
 ) ELSE (
-    set target=%1
+    set target=%~1
 )
 set common_args=-maxCpuCount  -t:%target%
 set build_cmd=msbuild.exe  %common_args%
