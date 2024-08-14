@@ -17,9 +17,9 @@ pushd  "${script_dir}"
 ##    ビルドされたバイナリをディレクトリに配置する
 ##
 
-dst_dir=$1
-arch=$2
-config=$3
+dst_dir="$1"
+arch="$2"
+config="$3"
 
 
 if [[ "X${arch}Y" = 'Xx86Y' ]] ; then

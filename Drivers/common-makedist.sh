@@ -17,10 +17,10 @@ pushd  "${script_dir}"
 ##    ビルドされたバイナリをディレクトリに配置する
 ##
 
-dst_dir=$1
-arch=$2
-config=$3
-runtime=$4
+dst_dir="$1"
+arch="$2"
+config="$3"
+runtime="$4"
 
 
 if [[ "X${config}Y" = 'XDebugY' ]] ; then
