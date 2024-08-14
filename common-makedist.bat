@@ -20,9 +20,9 @@ set out_dir=Packages
 @REM   "ビルドされたバイナリをディレクトリに配置する"
 @REM
 
-set arch=%1
-set config=%2
-set runtime=%3
+set arch=%~1
+set config=%~2
+set runtime=%~3
 
 
 set target_out_dir=%script_dir%%out_dir%\%arch%\%config%
@@ -43,10 +43,10 @@ rmdir /S /Q "%driver_dir%"
 @REM
 
 CALL  "TVTest\common-makedist.bat"  ^
-    %tvtest_dir%    ^
-    %arch%          ^
-    %config%        ^
-    %runtime%       ^
+    "%tvtest_dir%"      ^
+    "%arch%"            ^
+    "%config%"          ^
+    "%runtime%"         ^
 ;
 
 
@@ -55,10 +55,10 @@ CALL  "TVTest\common-makedist.bat"  ^
 @REM
 
 CALL  "EDCB\common-makedist.bat"    ^
-    %edcb_dir%      ^
-    %arch%          ^
-    %config%        ^
-    %runtime%       ^
+    "%edcb_dir%"        ^
+    "%arch%"            ^
+    "%config%"          ^
+    "%runtime%"         ^
 ;
 
 
@@ -67,10 +67,10 @@ CALL  "EDCB\common-makedist.bat"    ^
 @REM
 
 CALL  "Drivers\common-makedist.bat"     ^
-    %driver_dir%    ^
-    %arch%          ^
-    %config%        ^
-    %runtime%       ^
+    "%driver_dir%"      ^
+    "%arch%"            ^
+    "%config%"          ^
+    "%runtime%"         ^
 ;
 
 

@@ -17,10 +17,10 @@ pushd "%script_dir%"
 @REM   "ビルドされたバイナリをディレクトリに配置する"
 @REM
 
-set dst_dir=%1
-set arch=%2
-set config=%3
-set runtime=%4
+set dst_dir=%~1
+set arch=%~2
+set config=%~3
+set runtime=%~4
 
 
 IF /i "%config%" == "Debug" (
