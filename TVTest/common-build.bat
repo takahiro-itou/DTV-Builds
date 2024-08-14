@@ -16,7 +16,7 @@ IF "%~1" == "" (
     echo no arguments passed.
     set target=Build
 ) ELSE (
-    set target=%1
+    set target=%~1
 )
 set common_args=-maxCpuCount  -t:%target%
 set build_cmd=msbuild.exe  %common_args%
@@ -122,6 +122,23 @@ IF errorlevel 1  GOTO  failure
 IF errorlevel 1  GOTO  failure
 %build_cmd%  -p:Platform=x86   -p:Configuration=ReleaseSPHD     ^
     %retarget_solution%  TvCas.sln
+IF errorlevel 1  GOTO  failure
+popd
+
+@REM   "TVTestVideoDecoder  のビルド"
+
+pushd  TVTestVideoDecoder\src
+%build_cmd%  -p:Platform=x64   -p:Configuration=Debug       ^
+    TVTestVideoDecoder.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=x64   -p:Configuration=Release     ^
+    TVTestVideoDecoder.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       ^
+    TVTestVideoDecoder.sln
+IF errorlevel 1  GOTO  failure
+%build_cmd%  -p:Platform=Win32 -p:Configuration=Release     ^
+    TVTestVideoDecoder.sln
 IF errorlevel 1  GOTO  failure
 popd
 

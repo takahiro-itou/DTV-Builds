@@ -30,10 +30,12 @@ mkdir -p "${target_out_dir}"
 
 tvtest_dir="${target_out_dir}/TVTest"
 edcb_dir="${target_out_dir}/EDCB"
+driver_dir="${target_out_dir}/px4_drv_winusb"
 
 
 rm -rf "${tvtest_dir}"
 rm -rf "${edcb_dir}"
+rm -rf "${driver_dir}"
 
 
 ##--------------------------------------------------------------------
@@ -48,12 +50,24 @@ rm -rf "${edcb_dir}"
 ;
 
 
-######################################################################
+##--------------------------------------------------------------------
 ##    EDCB  のバイナリをディレクトリに配置する
 ##
 
 "${script_dir}/EDCB/common-makedist.sh"     \
     "${edcb_dir}"       \
+    "${arch}"           \
+    "${config}"         \
+    "${runtime}"        \
+;
+
+
+##--------------------------------------------------------------------
+##    EDCB  のバイナリをディレクトリに配置する
+##
+
+"${script_dir}/Drivers/common-makedist.sh"      \
+    "${driver_dir}"     \
     "${arch}"           \
     "${config}"         \
     "${runtime}"        \

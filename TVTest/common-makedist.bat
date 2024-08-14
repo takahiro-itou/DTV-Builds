@@ -17,16 +17,20 @@ pushd "%script_dir%"
 @REM   "ビルドされたバイナリをディレクトリに配置する"
 @REM
 
-set dst_dir=%1
-set arch=%2
-set config=%3
-set runtime=%4
+set dst_dir=%~1
+set arch=%~2
+set config=%~3
+set runtime=%~4
 
 
 IF /i "%arch%" == "x86" (
     set winbits=Win32
 ) ELSE (
     set winbits=%arch%
+)
+
+IF /i "%config%" == "Debug" (
+    set runtime=
 )
 
 set src_dir=%winbits%\%config%
@@ -44,11 +48,11 @@ set plugin_dir=%dst_dir%\Plugins
 mkdir "%dst_dir%"
 mkdir "%plugin_dir%"
 CALL  "package.bat"     ^
-    %arch%              ^
-    %dst_dir%           ^
-    %config%            ^
-    %src_dir%           ^
-    %runtime%           ^
+    "%arch%"            ^
+    "%dst_dir%"         ^
+    "%config%"          ^
+    "%src_dir%"         ^
+    "%runtime%"         ^
 ;
 
 pushd TVTest
@@ -56,8 +60,8 @@ pushd TVTest
 @REM   "プラグインをコピー"
 
 cd  "sdk\Samples"
-COPY /V /B  DiskRelay\DiskRelay.txt             "%plugin_dir%\"  /B
-COPY /V /B  MemoryCapture\MemoryCapture.txt     "%plugin_dir%\"  /B
+COPY /V /B  "DiskRelay\DiskRelay.txt"           "%plugin_dir%\"  /B
+COPY /V /B  "MemoryCapture\MemoryCapture.txt"   "%plugin_dir%\"  /B
 popd
 
 @REM   "その他のファイルをコピー"
@@ -67,6 +71,12 @@ COPY /V /B  "CasProcessor.tvtp"                 "%plugin_dir%\"  /B
 popd
 
 COPY /V /B  "TvCas\%src_dir%\B25.tvcas"         "%dst_dir%\"  /B
+
+pushd "TVTestVideoDecoder\"
+COPY /V /B  "doc\TVTestVideoDecoder.txt"        "%dst_dir%\"  /B
+cd  "src\%src_dir%\"
+COPY /V /B  "TVTestVideoDecoder.ax"             "%dst_dir%\"  /B
+popd
 
 mkdir "%dst_dir%\BonDriver"
 

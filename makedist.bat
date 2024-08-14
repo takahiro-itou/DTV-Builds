@@ -1,5 +1,5 @@
 
-cpch  65001
+chcp  65001
 setlocal
 
 

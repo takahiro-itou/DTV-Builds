@@ -17,7 +17,7 @@ IF "%~1" == "" (
     echo no arguments passed.
     set target=Build
 ) ELSE (
-    set target=%1
+    set target=%~1
 )
 set common_args=-maxCpuCount  -t:%target%
 set build_cmd=msbuild.exe  %common_args%
@@ -38,6 +38,15 @@ IF errorlevel 1  GOTO  failure
 @REM
 
 CALL  "EDCB\common-build.bat"  %target%
+IF errorlevel 1  GOTO  failure
+
+
+@REM  ====================================================================
+@REM
+@REM   "Drivers の全てのソリューションをビルドする"
+@REM
+
+CALL  "Drivers\common-build.bat"  %target%
 IF errorlevel 1  GOTO  failure
 
 

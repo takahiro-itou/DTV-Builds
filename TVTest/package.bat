@@ -11,11 +11,11 @@ setlocal
 set script_dir=%~dp0
 pushd "%script_dir%"
 
-set arch=%1
-set dst_dir=%2
-set config=%3
-set src_dir=%4
-set runtime=%5
+set arch=%~1
+set dst_dir=%~2
+set config=%~3
+set src_dir=%~4
+set runtime=%~5
 
 
 IF /i "%arch%" == "x86" (

@@ -17,9 +17,9 @@ pushd "%script_dir%"
 @REM   "ビルドされたバイナリをディレクトリに配置する"
 @REM
 
-set dst_dir=%1
-set arch=%2
-set config=%3
+set dst_dir=%~1
+set arch=%~2
+set config=%~3
 
 
 IF /i "%arch%" == "x86" (
@@ -46,10 +46,10 @@ set work_dir=%script_dir%\Packages.work
 
 mkdir "%dst_dir%"
 CALL  "package.bat"     ^
-    %arch%              ^
-    %dst_dir%           ^
-    %config%            ^
-    %src_dir%           ^
+    "%arch%"            ^
+    "%dst_dir%"         ^
+    "%config%"          ^
+    "%src_dir%"         ^
 ;
 
 
