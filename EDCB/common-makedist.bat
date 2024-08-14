@@ -46,10 +46,10 @@ set work_dir=%script_dir%\Packages.work
 
 mkdir "%dst_dir%"
 CALL  "package.bat"     ^
-    %arch%              ^
-    %dst_dir%           ^
-    %config%            ^
-    %src_dir%           ^
+    "%arch%"            ^
+    "%dst_dir%"         ^
+    "%config%"          ^
+    "%src_dir%"         ^
 ;
 
 
