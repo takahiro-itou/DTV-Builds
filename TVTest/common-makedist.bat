@@ -44,11 +44,11 @@ set plugin_dir=%dst_dir%\Plugins
 mkdir "%dst_dir%"
 mkdir "%plugin_dir%"
 CALL  "package.bat"     ^
-    %arch%              ^
-    %dst_dir%           ^
-    %config%            ^
-    %src_dir%           ^
-    %runtime%           ^
+    "%arch%"            ^
+    "%dst_dir%"         ^
+    "%config%"          ^
+    "%src_dir%"         ^
+    "%runtime%"         ^
 ;
 
 pushd TVTest
