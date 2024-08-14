@@ -17,9 +17,9 @@ pushd "%script_dir%"
 @REM   "ビルドされたバイナリをディレクトリに配置する"
 @REM
 
-set dst_dir=%1
-set arch=%2
-set config=%3
+set dst_dir=%~1
+set arch=%~2
+set config=%~3
 
 
 IF /i "%arch%" == "x86" (
