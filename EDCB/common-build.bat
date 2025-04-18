@@ -147,9 +147,16 @@ popd
 pushd  lua-zlib
 
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       zlib52.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     zlib52.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       zlib52.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     zlib52.sln
+IF errorlevel 1  GOTO  failure
 
 popd
 
@@ -186,28 +193,55 @@ popd
 @REM   "psisimux  のビルド"
 
 pushd  psisimux
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       psisimux.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     psisimux.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       psisimux.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     psisimux.sln
+IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "tsmemseg  のビルド"
 
 pushd  tsmemseg
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       tsmemseg.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     tsmemseg.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       tsmemseg.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     tsmemseg.sln
+IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "tsreadex  のビルド"
 
 pushd  tsreadex
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       tsreadex.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     tsreadex.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       tsreadex.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     tsreadex.sln
+IF errorlevel 1  GOTO  failure
+
 popd
 
 
