@@ -109,18 +109,23 @@ popd
 @REM   "CasProcessor  のビルド"
 
 pushd  CasProcessor
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       ^
     %retarget_solution%  CasProcessor.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release     ^
     %retarget_solution%  CasProcessor.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       ^
     %retarget_solution%  CasProcessor.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     ^
     %retarget_solution%  CasProcessor.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "TvCas のビルド"
@@ -129,38 +134,49 @@ pushd  TVCas
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug           ^
     %retarget_solution%  TvCas.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release         ^
     %retarget_solution%  TvCas.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=ReleaseSPHD     ^
     %retarget_solution%  TvCas.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug           ^
     %retarget_solution%  TvCas.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release         ^
     %retarget_solution%  TvCas.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=ReleaseSPHD     ^
     %retarget_solution%  TvCas.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "TVTestVideoDecoder  のビルド"
 
 pushd  TVTestVideoDecoder\src
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       ^
     TVTestVideoDecoder.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     ^
     TVTestVideoDecoder.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       ^
     TVTestVideoDecoder.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release     ^
     TVTestVideoDecoder.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 
