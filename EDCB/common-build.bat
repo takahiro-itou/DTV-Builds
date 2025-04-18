@@ -37,145 +37,221 @@ set retarget_solution=-p:PlatformToolset=v142;WindowsTargetPlatformVersion=10.0
 @REM   "EDCB  のビルド"
 
 pushd  EDCB\Document
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       EDCB_ALL.VS2015.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release     EDCB_ALL.VS2015.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       EDCB_ALL.VS2015.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     EDCB_ALL.VS2015.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "EDCB  ツールのビルド"
 
 pushd  EDCB\ini\Tools
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       misc.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     misc.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       misc.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     misc.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "EDCB  ツールのビルド"
 
 pushd  EDCB\ini\Tools\IBonCast
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       IBonCast.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     IBonCast.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       IBonCast.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     IBonCast.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "EDCB  ツールのビルド"
 
 pushd  EDCB\ini\Tools\tsidmove
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       tsidmove.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     tsidmove.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       tsidmove.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     tsidmove.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "B25Decoder  のビルド"
 
 pushd  libaribb25
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       arib_std_b25.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release     arib_std_b25.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       arib_std_b25.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     arib_std_b25.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "lua52 のビルド"
 
 pushd  lua
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       lua52.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     lua52.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       lua52.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     lua52.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "zlib52  のビルド"
 
 pushd  lua-zlib
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       zlib52.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     zlib52.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       zlib52.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     zlib52.sln
+IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "Write_Multi のビルド"
 
 pushd  Write_Multi
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       ^
     %retarget_solution%  Write_Multi.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     ^
     %retarget_solution%  Write_Multi.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       ^
     %retarget_solution%  Write_Multi.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     ^
     %retarget_solution%  Write_Multi.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "psisiarc  のビルド"
 
 pushd  psisiarc
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       psisiarc.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     psisiarc.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       psisiarc.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     psisiarc.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "psisimux  のビルド"
 
 pushd  psisimux
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       psisimux.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     psisimux.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       psisimux.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     psisimux.sln
+IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "tsmemseg  のビルド"
 
 pushd  tsmemseg
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       tsmemseg.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     tsmemseg.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       tsmemseg.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     tsmemseg.sln
+IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "tsreadex  のビルド"
 
 pushd  tsreadex
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       tsreadex.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     tsreadex.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       tsreadex.sln
+IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     tsreadex.sln
+IF errorlevel 1  GOTO  failure
+
 popd
 
 
