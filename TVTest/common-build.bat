@@ -37,35 +37,49 @@ set retarget_solution=-p:PlatformToolset=v142;WindowsTargetPlatformVersion=10.0
 @REM   "LibISDB のビルド"
 
 pushd TVTest\src\LibISDB\Projects
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       LibISDB.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     LibISDB.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release_MD  LibISDB.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       LibISDB.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     LibISDB.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release_MD  LibISDB.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "TVTest  のビルド"
 
 pushd TVTest\src
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       TVTest.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release     TVTest.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release_MD  TVTest.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       TVTest.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     TVTest.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release_MD  TVTest.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "サンプルプラグインのビルド"
