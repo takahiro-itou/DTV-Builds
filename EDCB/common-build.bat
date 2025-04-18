@@ -37,88 +37,120 @@ set retarget_solution=-p:PlatformToolset=v142;WindowsTargetPlatformVersion=10.0
 @REM   "EDCB  のビルド"
 
 pushd  EDCB\Document
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       EDCB_ALL.VS2015.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release     EDCB_ALL.VS2015.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       EDCB_ALL.VS2015.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     EDCB_ALL.VS2015.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "EDCB  ツールのビルド"
 
 pushd  EDCB\ini\Tools
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       misc.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     misc.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       misc.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     misc.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "EDCB  ツールのビルド"
 
 pushd  EDCB\ini\Tools\IBonCast
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       IBonCast.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     IBonCast.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       IBonCast.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     IBonCast.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "EDCB  ツールのビルド"
 
 pushd  EDCB\ini\Tools\tsidmove
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       tsidmove.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     tsidmove.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       tsidmove.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     tsidmove.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "B25Decoder  のビルド"
 
 pushd  libaribb25
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug       arib_std_b25.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release     arib_std_b25.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       arib_std_b25.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     arib_std_b25.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "lua52 のビルド"
 
 pushd  lua
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       lua52.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     lua52.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       lua52.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     lua52.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "zlib52  のビルド"
 
 pushd  lua-zlib
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug       zlib52.sln
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release     zlib52.sln
 %build_cmd%  -p:Platform=x86   -p:Configuration=Debug       zlib52.sln
 %build_cmd%  -p:Platform=x86   -p:Configuration=Release     zlib52.sln
+
 popd
 
 @REM   "Write_Multi のビルド"
