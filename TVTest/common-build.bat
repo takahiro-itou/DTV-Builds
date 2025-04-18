@@ -85,18 +85,25 @@ popd
 @REM   "サンプルプラグインのビルド"
 
 pushd TVTest\sdk\Samples
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Debug           Samples.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release         Samples.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=Win32 -p:Configuration=Release_static  Samples.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Debug           Samples.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release         Samples.sln
 IF errorlevel 1  GOTO  failure
+
 %build_cmd%  -p:Platform=x64   -p:Configuration=Release_static  Samples.sln
 IF errorlevel 1  GOTO  failure
+
 popd
 
 @REM   "CasProcessor  のビルド"
