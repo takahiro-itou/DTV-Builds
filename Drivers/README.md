@@ -13,3 +13,9 @@ makecert -r -pe -n "CN=px4_drv CA,O=px4_drv CA,C=JP" -a sha256 -b 01/01/2000 -e 
 ```
 makecert -n "CN=px4_drv CA" -a sha256 -b 01/01/2000 -e 12/31/2099 -iv root.pvk -ic root.cer -sv trustedpub.pvk -cy end -eku 1.3.6.1.5.5.7.3.3 trustedpub.cer
 ```
+
+###   3.  PFX ファイル作成
+
+```
+pvk2pfx -pvk trustedpub.pvk -spc trustedpub.cer -pfx trustedpub.pfx -pi 123 -f
+```
