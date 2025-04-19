@@ -29,5 +29,5 @@ Inf2Cat /driver:<inf ファイルがあるディレクトリ> /usrlocaltime  ^
 ```
 
 ```
-signtool sign /f trustedpub.pfx /p 123 /t http://timestamp.digicert.com px4_drv_winusb.cat
+signtool sign /f trustedpub.pfx /fd sha256 /p 123 /t http://timestamp.digicert.com px4_drv_winusb.cat
 ```
