@@ -19,3 +19,11 @@ makecert -n "CN=px4_drv CA" -a sha256 -b 01/01/2000 -e 12/31/2099 -iv root.pvk -
 ```
 pvk2pfx -pvk trustedpub.pvk -spc trustedpub.cer -pfx trustedpub.pfx -pi 123 -f
 ```
+
+###   4.  デバイスドライバに署名
+
+
+```
+Inf2Cat /driver:<inf ファイルがあるディレクトリ> /usrlocaltime  ^
+/os:7_X86,7_X64,8_X86,8_X64,10_X86,10_X64,Server2008R2_X64,Server10_X64
+```
