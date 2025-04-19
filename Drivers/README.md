@@ -27,3 +27,7 @@ pvk2pfx -pvk trustedpub.pvk -spc trustedpub.cer -pfx trustedpub.pfx -pi 123 -f
 Inf2Cat /driver:<inf ファイルがあるディレクトリ> /usrlocaltime  ^
 /os:7_X86,7_X64,8_X86,8_X64,10_X86,10_X64,Server2008R2_X64,Server10_X64
 ```
+
+```
+signtool sign /f trustedpub.pfx /p 123 /t http://timestamp.digicert.com px4_drv_winusb.cat
+```
