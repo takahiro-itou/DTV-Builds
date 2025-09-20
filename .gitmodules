@@ -51,4 +51,4 @@
 	url = ../fdk-aac.git
 [submodule "Tools/Multi2Dec"]
 	path = Tools/Multi2Dec
-	url = git@gitlab.com:takahiro-itou-dtv/Multi2Dec.git
+	url = ../Multi2Dec.git
