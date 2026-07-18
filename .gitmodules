@@ -49,3 +49,6 @@
 [submodule "extra/fdk-aac"]
 	path = extra/fdk-aac
 	url = ../fdk-aac.git
+[submodule "Tools/Multi2Dec"]
+	path = Tools/Multi2Dec
+	url = ../Multi2Dec.git
